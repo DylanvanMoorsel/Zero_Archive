@@ -21,10 +21,10 @@
 <header class="band hero small" style="padding-bottom:clamp(64px,7vw,96px)"><div class="wrap split">
   <div>
     <p class="crumbs"><a href="index.html">Zero Archive</a> › Lore-quiz</p>
-    <span class="tagl">10 vragen · alles staat op de site</span>
+    <span class="tagl" id="poolTag">Kies 10 of 20 vragen · alles staat op de site</span>
     <h1>Ben jij een echte <em>lore-legende</em>?</h1>
-    <p class="lead">Tien willekeurige vragen over de Zero Point, The Seven, Geno en Out of Time. Elk goed antwoord levert XP op, en een reeks goede antwoorden levert bonuspunten op. Weet je het niet? Na elke vraag zie je het antwoord en waar het op de site staat.</p>
-    <div class="btns"><button class="btn y" id="go" type="button">Start de quiz</button><a class="btn w" href="index.html#tijdlijn">Eerst nog even lezen</a></div>
+    <p class="lead">Willekeurige vragen over de Zero Point, The Seven, Geno en Out of Time. Elk goed antwoord levert XP op, en een reeks goede antwoorden levert bonuspunten op. Weet je het niet? Na elke vraag zie je het antwoord en waar het op de site staat.</p>
+    <div class="btns"><button class="btn y" id="go" type="button" data-n="10">Snelle quiz (10)</button><button class="btn y" id="go20" type="button" data-n="20">Lange quiz (20)</button><a class="btn w" href="index.html#tijdlijn">Eerst nog even lezen</a></div>
     <p class="when" id="best" style="margin-top:16px"></p>
   </div>
   <div class="fig" aria-hidden="true" style="min-height:300px">
@@ -63,7 +63,7 @@
     <div class="grid">
       <article class="card" style="--r:var(--rare)"><span class="rar">Punten</span><h3>100 per goed antwoord</h3><p>En +50 bonus voor elk goed antwoord in een reeks van twee of meer.</p></article>
       <article class="card" style="--r:var(--epic)"><span class="rar" style="--r:var(--epic)">XP</span><h3>Verdien XP voor je level</h3><p>Elke vraag die je voor het eerst goed hebt, telt mee voor je level rechtsboven.</p></article>
-      <article class="card" style="--r:var(--leg)"><span class="rar" style="--r:var(--leg)">Rang</span><h3>Van Looper tot legende</h3><p>Je eindscore bepaalt je rang. Haal je 10 uit 10, dan ben je een echte lore-legende.</p></article>
+      <article class="card" style="--r:var(--leg)"><span class="rar" style="--r:var(--leg)">Rang</span><h3>Van Looper tot legende</h3><p>Je eindscore bepaalt je rang. Heb je alles goed, dan ben je een echte lore-legende. De lange quiz levert dubbele bonus-XP op.</p></article>
     </div>
   </div>
 </div></section>
@@ -99,18 +99,43 @@ const Q=[
  ["zerohour","Hoeveel spelers zagen Zero Hour, de finale van Chapter 6?","10,5 miljoen",["2 miljoen","25 miljoen","500.000"],"Zero Hour trok 10,5 miljoen spelers.","index.html#basis"],
  ["seasonx","Waar was “Out of Time” eerder al de slogan van?","Season X van Chapter 1",["Chapter 2 Season 1","De Big Bang","Remix"],"“Out of Time” was ook de slogan van Season X. In OG hangt de teller boven de Zero Point en de raket.","out-of-time.html"],
  ["daughters","Hoe heten de dochters van Geno?","The Imagined en The Order",["Hope en Valeria","The Paradigm en Singularity","Jade en Nisha"],"The Imagined en The Order zijn Geno's genetisch aangepaste dochters. Ze kozen allebei de kant van The Seven.","index.html#seven"],
- ["voyager","Wie verraadde de Ice King bij Shattered?","De Dark Voyager",["The Foundation","Jones","Captain X"],"De Dark Voyager zoog de levenskracht van de Ice King op en maakte de Zero Point compleet.","personages.html#dark-voyager"]];
-const RANKS=[[0,"Nieuwe Looper","Iedereen begint ergens. Lees de tijdlijn en probeer het opnieuw."],[4,"Rift-reiziger","Je kent de grote lijnen. Nog een paar chapters en je hoort erbij."],[7,"Lid van The Seven","Sterk! Je weet meer dan de meeste spelers in de lobby."],[9,"Zero Point-meester","Bijna perfect. Geno zou je liever niet tegenkomen."],[10,"Lore-legende","10 uit 10. Jij bent klaar voor Out of Time."]];
+ ["voyager","Wie verraadde de Ice King bij Shattered?","De Dark Voyager",["The Foundation","Jones","Captain X"],"De Dark Voyager zoog de levenskracht van de Ice King op en maakte de Zero Point compleet.","personages.html#dark-voyager"],
+ ["captainx","Wie leidt de schattenjacht in Treasure Hunters?","Captain X",["Oscar","Midas","The Order"],"Captain X is het gemaskerde brein achter de jacht op de sleutel van de kist.","personages.html#captain-x"],
+ ["reveal","Wanneer wordt de identiteit van Captain X onthuld?","Tijdens Out of Time",["Bij de start van Chapter 8","Bij The Streamer Awards","Nooit, dat blijft geheim"],"Epic bevestigde dat zijn masker afgaat tijdens het event Out of Time op 5 december.","out-of-time.html"],
+ ["harvester","Hoe heet het schip van de Dark Voyager?","De Dark Harvester",["Het moederschip","The Spire","De Battle Bus"],"Met de Dark Harvester verzamelde de Dark Voyager de Zero Shards.","personages.html#dark-voyager"],
+ ["frozen","Wie werd bij Shattered bevroren door de Ice King?","The Foundation",["Jones","Hope","The Order"],"De Ice King won de rivaliteit en bevroor The Foundation, die daarna verdween.","personages.html#foundation"],
+ ["isle","Op welk eiland landen Hope en Jones met de schatkist?","Crossbones Isle",["Oninoshima","Helios","Springfield"],"In Treasure Hunters landen ze met de kist op Crossbones Isle.","out-of-time.html"],
+ ["coast","Hoe heet het eiland nadat de Zero Point bij Shattered weer heel werd?","Shattered Coast",["Golden Coast","Reality Zero","The Flipside"],"Het hervormde eiland heet de Shattered Coast, en dat valt nu langzaam uit elkaar.","index.html#woorden"],
+ ["sprites","Wat hielp de vergiftigde Jones genezen?","Sprites",["Een Chug Jug","Pandora's Box","De rode kubus"],"De Sprites uit Chapter 7, gemaakt van Zero Point-materiaal, hielpen Jones genezen.","personages.html#jones"],
+ ["wrixel","Met wie bouwde Slone de superhack?","Wrixel",["Singularity","Captain X","The Scientist"],"Slone en Wrixel bouwden een superhack om de splinter binnen te halen, maar kregen een schatkist.","personages.html#slone"],
+ ["skyfire","Wat deed Slone tijdens Operation Sky Fire?","Ze liet de Loopers achter op het moederschip",["Ze bestuurde de Mecha","Ze stal de gouden kubus","Ze vluchtte naar Reality 783"],"Slone stuurde Loopers op het moederschip af en liet ze daar achter.","personages.html#slone"],
+ ["kado","Welke vampier kwam in Chapter 4 Season 4 naar het eiland?","Kado Thorne",["The Ageless","Megalo Don","Daigo"],"Kado Thorne kwam met zijn Eclipse; Slone liet zijn tijdmachine stelen.","index.html#tijdlijn"],
+ ["chrome","Wat verspreidde The Herald over het eiland?","Chrome",["Goud","IJs","Lava"],"The Herald verchroomde alles in Chapter 3, zelfs The Scientist.","index.html#tijdlijn"],
+ ["spire","Wat bouwde The Foundation om de Zero Point in te dammen?","The Spire",["The Collider","The Stabilizer","The Device"],"In Chapter 2 Season 6 bouwde The Foundation The Spire.","personages.html#foundation"],
+ ["galactus","Wie at in Chapter 2 de Battle Buses op?","Galactus",["Zeus","Doctor Doom","De Cube Queen"],"Galactus slokte de Battle Buses op voordat hij werd teruggestuurd.","index.html#tijdlijn"],
+ ["pandora","Wat ging er open aan het eind van Chapter 5 Season 1?","Pandora's Box",["The Vault","Een zwart gat","The Spire"],"In maart 2024 ging Pandora's Box open.","index.html#events"],
+ ["zeus","Welke god verslaat de Looper in Chapter 5 Season 2?","Zeus",["Ares","Hades","Poseidon"],"De Looper werd Hero of Mortals en versloeg Zeus.","index.html#tijdlijn"],
+ ["oninoshima","Hoe heet Reality 783, waar in Chapter 6 een Zero Point-scherf neerstortte?","Oninoshima",["Helios","Olympus","Springfield"],"Een stuk Zero Point stortte neer op Oninoshima en wekte de demonen.","index.html#tijdlijn"],
+ ["goldcube","Wat werd er zichtbaar in het moederschip na Operation Sky Fire?","Een gouden kubus",["Een paarse splinter","De helm van Geno","Pandora's Box"],"Na het uitschakelen van het moederschip werd een gouden kubus zichtbaar.","index.html#tijdlijn"],
+ ["kevin","Hoe noemden fans de paarse kubus uit Chapter 1?","Kevin",["Steve","Cubey","The Herald"],"De paarse kubus kreeg van fans de bijnaam Kevin.","index.html#tijdlijn"],
+ ["batmanloop","In welke comic belandt Batman in de Loop?","Batman/Fortnite: Zero Point",["Fortnite x Marvel: Zero War","Nexus War: Thor","Fortnite x Sonic"],"In Batman/Fortnite: Zero Point raakt Batman zijn geheugen kwijt in de Loop.","index.html#comics"],
+ ["gage","Wie schreef zowel Batman/Fortnite: Zero Point als Zero War?","Christos Gage",["Donny Cates","Donald Mustard alleen","Ben Starr"],"Christos Gage schreef beide, met een verhaal van Donald Mustard van Epic.","index.html#comics"],
+ ["cheat","Wat verstopte Hope in haar kunstwerken?","Een cheatcode tegen Geno's invloed",["De sleutel van de kist","Een kaart naar Reality 616","Een foto van Captain X"],"Hope verstopte een cheatcode die de Looper bevrijdt van Geno's invloed.","personages.html#hope"],
+ ["test","Hoeveel XP leverde de spoilervrije servertest op?","80.000 XP",["10.000 XP","250.000 XP","1 miljoen XP"],"De servertest voor Out of Time leverde 80.000 XP op.","out-of-time.html"],
+ ["timer","Waar hangt de Out of Time-teller in Battle Royale?","Boven The Chest",["Boven Dusty Depot","Op de Battle Bus","In de lobby"],"In BR hangt de teller boven The Chest; in OG boven de Zero Point en de raket van Dusty Depot.","out-of-time.html"],
+ ["fracture","Welk event sloot Chapter 3 af?","Fracture",["Collision","The Big Bang","Zero Hour"],"Fracture op 3 december 2022: Chrome nam alles over en het eiland brak.","index.html#events"]];
+const RANKS=[[0,"Nieuwe Looper","Iedereen begint ergens. Lees de tijdlijn en probeer het opnieuw."],[4,"Rift-reiziger","Je kent de grote lijnen. Nog een paar chapters en je hoort erbij."],[7,"Lid van The Seven","Sterk! Je weet meer dan de meeste spelers in de lobby."],[9,"Zero Point-meester","Bijna perfect. Geno zou je liever niet tegenkomen."],[10,"Lore-legende","Alles goed. Jij bent klaar voor Out of Time."]];
 const $=id=>document.getElementById(id);
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
-let set=[],i=0,score=0,good=0,streak=0,best=0,log=[];
+let NQ=10,set=[],i=0,score=0,good=0,streak=0,best=0,log=[];
 let rec=0;try{rec=+localStorage.getItem('zaQuizBest')||0}catch(e){}
+document.getElementById('poolTag').textContent=`Kies 10 of 20 vragen uit ${Q.length} · alles staat op de site`;
 const showBest=()=>{$('best').textContent=rec?`Jouw beste score: ${rec} punten`:''};showBest();
 
-function start(){set=shuffle(Q).slice(0,10);i=0;score=0;good=0;streak=0;best=0;log=[];
+function start(n){NQ=n||NQ;set=shuffle(Q).slice(0,NQ);i=0;score=0;good=0;streak=0;best=0;log=[];
   $('startHint').hidden=true;$('end').hidden=true;$('qz').hidden=false;show();$('quiz').scrollIntoView({behavior:'smooth'})}
 function show(){const q=set[i];
-  $('qNum').textContent=`Vraag ${i+1}/10`;$('qBar').style.width=(i/10*100)+'%';$('qScore').textContent=score+' punten';
+  $('qNum').textContent=`Vraag ${i+1}/${NQ}`;$('qBar').style.width=(i/NQ*100)+'%';$('qScore').textContent=score+' punten';
   $('qText').textContent=q[1];$('qFb').hidden=true;$('next').hidden=true;
   const opts=shuffle([q[2],...q[3]]);
   $('qOpts').innerHTML=opts.map((o,k)=>`<button type="button" class="opt" data-v="${k}"><b>${'ABCD'[k]}</b><span></span></button>`).join('');
@@ -130,20 +155,20 @@ $('qOpts').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||
   $('qFb').hidden=false;$('qScore').textContent=score+' punten';
   $('qStreak').hidden=streak<2;$('qStreak').textContent=`Reeks ×${streak}`;
   log.push([q[1],q[2],b.querySelector('span').textContent,ok]);
-  $('next').textContent=i===9?'Bekijk je resultaat':'Volgende vraag';$('next').hidden=false;$('next').focus({preventScroll:true});
+  $('next').textContent=i===NQ-1?'Bekijk je resultaat':'Volgende vraag';$('next').hidden=false;$('next').focus({preventScroll:true});
 });
-$('next').addEventListener('click',()=>{$('qOpts').classList.remove('done');i++;if(i<10)show();else finish()});
+$('next').addEventListener('click',()=>{$('qOpts').classList.remove('done');i++;if(i<NQ)show();else finish()});
 function finish(){$('qz').hidden=true;$('end').hidden=false;$('qBar').style.width='100%';
-  const rk=RANKS.filter(r=>good>=r[0]).pop();$('rank').textContent=rk[1];$('endTxt').textContent=`${good} van de 10 goed. ${rk[2]}`;
+  const pct=good/NQ*10,rk=RANKS.filter(r=>pct>=r[0]).pop();$('rank').textContent=rk[1];$('endTxt').textContent=`${good} van de ${NQ} goed. ${rk[2]}`;
   const newRec=score>rec;if(newRec){rec=score;try{localStorage.setItem('zaQuizBest',rec)}catch(e){}showBest()}
-  $('endStats').innerHTML=`<div class="fact"><b>${score}</b><span>punten${newRec?' · nieuw record!':''}</span></div><div class="fact"><b>${good}/10</b><span>goede antwoorden</span></div><div class="fact"><b>×${best}</b><span>langste reeks</span></div>`;
+  $('endStats').innerHTML=`<div class="fact"><b>${score}</b><span>punten${newRec?' · nieuw record!':''}</span></div><div class="fact"><b>${good}/${NQ}</b><span>goede antwoorden</span></div><div class="fact"><b>×${best}</b><span>langste reeks</span></div>`;
   $('review').innerHTML='';log.forEach(([q,c,g,ok])=>{const li=document.createElement('li');li.className=ok?'ok':'no';
     const b=document.createElement('b');b.textContent=q;const s=document.createElement('span');s.textContent=ok?`Goed: ${c}`:`Jij: ${g} · Juist: ${c}`;li.append(b,s);$('review').append(li)});
   $('end').scrollIntoView({behavior:'smooth'});
-  if(window.FX){const n=good>=9?4:good>=7?2:1;for(let k=0;k<n;k++)setTimeout(()=>FX.burst(innerWidth*(.25+Math.random()*.5),innerHeight*(.3+Math.random()*.3),110,15),k*350);FX.give&&good===10&&FX.give('quiz:perfect',500,innerWidth/2,innerHeight/2)}
+  if(window.FX){const n=pct>=9?4:pct>=7?2:1;for(let k=0;k<n;k++)setTimeout(()=>FX.burst(innerWidth*(.25+Math.random()*.5),innerHeight*(.3+Math.random()*.3),110,15),k*350);FX.give&&good===NQ&&FX.give('quiz:perfect'+NQ,NQ===20?1000:500,innerWidth/2,innerHeight/2)}
 }
-$('go').addEventListener('click',start);$('again').addEventListener('click',start);
-$('copy').addEventListener('click',async e=>{const t=`Ik haalde ${good}/10 (${score} punten) in de Zero Archive lore-quiz: ${$('rank').textContent}!`;
+$('go').addEventListener('click',()=>start(10));$('go20').addEventListener('click',()=>start(20));$('again').addEventListener('click',()=>start());
+$('copy').addEventListener('click',async e=>{const t=`Ik haalde ${good}/${NQ} (${score} punten) in de Zero Archive lore-quiz: ${$('rank').textContent}!`;
   try{await navigator.clipboard.writeText(t);e.target.textContent='Gekopieerd!'}catch(err){e.target.textContent='Kopiëren lukt hier niet'}setTimeout(()=>e.target.textContent='Kopieer je score',1800)});
 }
 </script>
