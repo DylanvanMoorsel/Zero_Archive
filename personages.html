@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Archive · Personages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>try{if(!sessionStorage.getItem("zaIntro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-on")}catch(e){}</script>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<nav><div class="wrap">
+  <a class="brand" href="index.html">Zero <span>Archive</span></a>
+  <div class="links scroll">
+    <a href="index.html#tijdlijn">Tijdlijn</a><a href="index.html#seven">The Seven</a><a href="index.html#geno">Geno</a><a href="index.html#comics">Comics</a><a href="index.html#events">Events</a><a href="quiz.html">Quiz</a><a href="personages.html" aria-current="page">Personages</a><a href="out-of-time.html" class="hot">Out of Time</a>
+  </div>
+</div></nav>
+
+<header class="band hero small"><div class="wrap split">
+  <div>
+    <p class="crumbs"><a href="index.html">Zero Archive</a> › Personages</p>
+    <span class="tagl">Wie is wie</span>
+    <h1>De <em>personages</em> achter het verhaal</h1>
+    <p class="lead">Helden, schurken en één man met een masker. Dit zijn de personages die het verhaal tot nu toe hebben gevormd, met wat ze deden, waar ze nu staan en waarom ze ertoe doen op 5 december.</p>
+    <div class="btns"><a class="btn y" href="#geno">Begin bij Geno</a><a class="btn w" href="out-of-time.html">Out of Time</a></div>
+  </div>
+  <div class="fig" aria-hidden="true" style="min-height:360px" id="heroTiles"></div>
+</div></header>
+
+<section class="band"><div class="wrap">
+  <h2>Alle personages</h2>
+  <p class="intro">Filter op kant. Open “Hele verhaal” op een kaart voor alles wat dat personage heeft meegemaakt.</p>
+  <div class="chips" role="group" aria-label="Filter op kant" id="chips">
+    <button aria-pressed="true" data-f="all">Iedereen</button><button aria-pressed="false" data-f="held">Helden</button><button aria-pressed="false" data-f="schurk">Schurken</button><button aria-pressed="false" data-f="onbekend">Mysterie</button>
+  </div>
+  <p class="src" id="count" aria-live="polite"></p>
+  <div class="chars" id="chars"></div>
+  <p class="note">De zeldzaamheidskleuren zijn onze eigen inschatting van hoe belangrijk een personage is voor het verhaal. De emblemen zijn eigen tekeningen die de rol van een personage laten zien, geen echte afbeeldingen uit het spel. Wil je zien hoe een personage er echt uitziet, gebruik dan de wiki-link op de kaart.</p>
+</div></section>
+
+<footer class="band"><div class="wrap">
+  <p><strong>Zero Archive</strong> is een onofficiële fansite, niet verbonden aan of goedgekeurd door Epic Games. Bijgewerkt op 25 november 2026.</p>
+  <p>Fortnite is een handelsmerk van Epic Games, Inc. · <a href="https://www.fortnite.com">fortnite.com</a></p>
+</div></footer>
+
+<script src="shared.js"></script>
+<script>
+{
+const {R,RN,tile}=window.FN;
+const SIDE={held:'Held',schurk:'Schurk',onbekend:'Mysterie'};
+/* id, name, alias, side, rarity, emblem, first, status, intro, why, story[] */
+const C=[
+ ["geno","Geno","Oprichter van de Imagined Order","schurk","io","geno","Genoemd in Chapter 2 Season 6","Heeft de Zero Point in zijn machine",
+  "Een genetisch wetenschapper die bezeten is van perfectie en onsterfelijkheid. Hij vond de Zero Point meer dan duizend jaar geleden en bouwde de IO om hem te beheersen. Al zeven chapters is hij de schaduw achter bijna elke dreiging.",
+  "Hij is de eindbaas van Chapter 7. Alles wat er op 5 december gebeurt, draait om het stoppen van zijn machine.",
+  [["Chapter 2","The Foundation vraagt Jones om hem te helpen Geno te vinden; voor het eerst valt zijn naam."],["Chapter 3 · Collision","Verschijnt voor het eerst echt in beeld."],["Zero War (comic)","Stapt in de Zero Point, wordt over het Omniverse verspreid en voegt zichzelf later weer samen."],["Chapter 4","Een jongere versie van hem, The Ageless, regeert over Oathbound."],["Chapter 7 · Season 1–2","Vermomt zich als The Visitor, speelt de Ice King en The Foundation tegen elkaar uit en stuurt de Dark Voyager aan."],["Shattered","Schiet Jones neer en zet zijn helm af."],["Season 3","Probeert zijn dochter The Order terug te halen en knoeit met Jones' tank. Wordt ontmaskerd."],["Unstable","Hackt The Stabilizer en neemt de Zero Point mee."],["Treasure Hunters","Stuurt Oscar op de splinter af en neemt via de radio afscheid van Jones."]]],
+ ["jones","Jones","Ex-IO-agent, ook wel Jonesy","held","leg","jones","Chapter 2, als IO-agent","Wakker en op zoek naar de sleutel",
+  "Ooit een agent van de IO die de Zero Point stabiel moest houden. Hij koos de kant van The Seven en reisde daarna door meer realiteiten dan wie ook. Hij is de rode draad door bijna het hele verhaal.",
+  "Volgens de visioenen van Hope is Jones degene die Geno kan verslaan. Een splinter van de Zero Point roept hem.",
+  [["Chapter 2 Season 5","Moet als IO-agent de Zero Point stabiliseren en haalt jagers uit andere realiteiten."],["Chapter 2 Season 6","Sluit een pact met The Foundation tegen de IO."],["Chapter 4 · OG","Reist naar een andere versie van Chapter 1 om de bewoners van Reality Zero te redden en een nieuwe Big Bang te ontsteken."],["Chapter 5","Sluit zich aan bij The Underground van Hope en wordt in Season 4 Captain Jones."],["Chapter 6","Saboteert met Hope de Death Star, belandt in Springfield en vernietigt de Dark Presence met zijn rode kubus."],["Chapter 7","Stuurt een noodsignaal naar The Seven. Wordt bij Shattered neergeschoten door Geno en raakt in coma."],["Season 3–4","Geno probeert zijn helende tank te vergiftigen, maar Sprites helpen hem genezen. In Season 4 ontwaakt hij."],["Treasure Hunters","Zoekt met Hope de sleutel van de schatkist."]]],
+ ["hope","Hope","The Prophecy","held","epic","hope","Chapter 5 Season 1","Lid van The New Seven",
+  "Een kunstenaar en rebel die weigerde mee te doen met de elitaire Society en in plaats daarvan het verzet begon. Sinds Chapter 5 is ze, samen met Jones, het kloppende hart van het verhaal.",
+  "Haar visioenen wezen Jones aan als de sleutel. Ze is met hem op Crossbones Isle op zoek naar de sleutel van de kist.",
+  [["Chapter 5 Season 1","Wijst The Society af, waar haar zus Valeria bij hoort, en sticht The Underground. Jones sluit zich bij haar aan."],["Chapter 5 Season 3","Verzamelt in stilte Pandora-edelstenen."],["Remix","Vertrekt met Jones naar Reality 783."],["Chapter 6","Vecht tegen het Galactic Empire, plant een aanval op het Spirit Realm en belandt in Springfield."],["Chapter 7 Season 3","Krijgt haar visioenen terug, wordt The Prophecy en schildert verleden, heden en toekomst op een muur. Ze wantrouwt The Visitor als eerste."],["Season 3","Verstopt in haar kunstwerken een cheatcode die de Looper van Geno's invloed bevrijdt."],["Treasure Hunters","Landt met Jones en de kist op Crossbones Isle."]]],
+ ["slone","Doctor Slone","The Innovation","held","rare","slone","Chapter 2","Lid van The New Seven",
+  "Jarenlang een van de gevaarlijkste vijanden van het eiland. Ze zat in de top van de IO en leidde het team dat het eiland beheerde. Na haar val bij Collision keerde ze de IO de rug toe. Nu werkt ze aan de goede kant.",
+  "Zij bouwde The Stabilizer die Geno kaapte, en ze houdt in de gaten hoe snel de Shattered Coast uit elkaar valt.",
+  [["Chapter 2 Season 7","Stuurt Loopers in Operation Sky Fire op het moederschip af en laat ze daar achter."],["Chapter 3 Season 2","Leidt de invasie van de IO met tanks, boren en luchtschepen."],["Collision","Wordt door de Mecha in een diepe afgrond geduwd en lijkt dood."],["Chapter 4 Season 3","Duikt weer op, klaar met de IO, en onderzoekt The Apparatus."],["Chapter 4 Season 4","Huurt een crew in om de tijdmachine van Kado Thorne te stelen."],["Chapter 7 Season 3","Wordt The Innovation en bouwt The Stabilizer. Bij Unstable wordt die gehackt."],["Season 4 + Treasure Hunters","Bouwt met Wrixel een superhack en stuurt rapporten over de Shattered Coast."]]],
+ ["captain-x","Captain X","Brein achter de schattenjacht","onbekend","myth","captainx","Treasure Hunters","Identiteit onbekend",
+  "Een gemaskerde figuur die de jacht op de sleutel van de grote kist leidt. Hij deelt flinke beloningen uit en helpt Hope en Jones, maar niemand weet wie hij echt is of wat hij zelf wil.",
+  "Epic heeft bevestigd dat zijn masker tijdens Out of Time afgaat.",
+  [["Treasure Hunters","Werkt samen met Hope en Jones op Crossbones Isle als brein achter de jacht."],["13 november","Duikt op bij The Streamer Awards en geeft een servetje met de boodschap dat je het op 5 december te weten komt."],["Theorieën","Fans gokken op MrBeast, of op een oude schurk zoals Geno, Montague of Midas. Niets is bevestigd."]]],
+ ["dark-voyager","Dark Voyager","Handlanger van Geno","schurk","io","voyager","Chapter 7 Season 1","Werkt voor Geno",
+  "Een duistere reiziger met een enorm schip, de Dark Harvester. Hij leek op eigen houtje Zero Shards te verzamelen, maar diende al die tijd Geno.",
+  "Hij hielp Geno The Stabilizer te hacken en is waarschijnlijk diens rechterhand in de laatste strijd.",
+  [["Season 1","Neemt InnoLoop Labs over en verzamelt Zero Shards met de Dark Harvester."],["Season 2","Sluit een deal met de Ice King tegen The Foundation."],["Shattered","Verraadt de Ice King, zuigt zijn levenskracht op en maakt de Zero Point compleet. Noemt Geno zijn meester."],["Unstable","Breekt samen met Geno via een achterdeur in The Stabilizer."]]],
+ ["foundation","The Foundation","Lid van The Seven","held","leg","foundation","Chapter 2 Season 6","Vermist sinds Shattered",
+  "De krachtpatser van The Seven, ingesproken door Dwayne Johnson. Hij was de eerste die Geno's naam liet vallen, en hij offerde zich al eens op voor het eiland.",
+  "Hij is sinds Shattered spoorloos. Een terugkeer op het juiste moment zou typisch Fortnite zijn, maar dat is niet bevestigd.",
+  [["Chapter 2 Season 6","Onthult zich, sluit een pact met Jones en bouwt The Spire."],["Chapter 3","Leidt het verzet tegen de IO en offert zich op bij Collision."],["Chapter 7 Season 2","Ontsnapt uit de gevangenis van de Ice King en leidt Team Foundation."],["Shattered","Wordt door de Ice King bevroren en is daarna verdwenen."]]],
+ ["the-order","The Order","Dochter van Geno","held","rare","order","Chapter 3 Season 2","Lid van The New Seven",
+  "Spion van The Seven en tweelingzus van The Imagined. Genetisch aangepast door haar eigen vader, maar ze koos de andere kant.",
+  "Geno probeerde haar terug te halen. Ze kent hem beter dan wie ook.",
+  [["Chapter 3","Steelt IO-geheimen vanuit de schaduw."],["Chapter 7 Season 1","Landt na het noodsignaal van Jones, wordt gevangen bij Lethal Labs en ontsnapt met hulp van de Looper."],["Season 3","Ontdekt samen met Hope en Slone dat The Visitor eigenlijk Geno is."]]],
+ ["ice-king","Ice King","Heerser van de kou","schurk","rare","iceking","Chapter 1 Season 7","Verslagen door de Dark Voyager",
+  "Al sinds Chapter 1 een bekende schurk. In Chapter 7 kwam hij terug met zijn ijsfort en een oude rekening met The Foundation.",
+  "Zijn val maakte de weg vrij voor Geno: zonder de rivaliteit had de Dark Voyager de laatste Shard misschien nooit gekregen.",
+  [["Chapter 1 Season 7","Bevriest het eiland samen met Sgt. Winter."],["Chapter 7 Season 2","Zijn ijsfort wordt naar binnen gerift. Hij sluit een deal met de Dark Voyager."],["Shattered","Wint van The Foundation, maar wordt direct verraden en leeggezogen door de Dark Voyager."]]],
+ ["oscar","Oscar","Piraat in dienst van Geno","schurk","io","oscar","Treasure Hunters","Op jacht naar de splinter",
+  "Een van de rivaliserende piraten die naar Crossbones Isle kwamen. Hij is geen gewone schatzoeker: Geno stuurde hem.",
+  "Als hij de splinter eerder vindt dan Jones, heeft Geno alles in handen.",
+  [["Treasure Hunters","Komt met andere piratencrews naar Crossbones Isle om de splinter voor Geno te halen."]]],
+ ["singularity","Singularity","The Singularity","held","epic","singularity","Chapter 1 Season 9","Lid van The New Seven",
+  "Hielp in Chapter 1 de Mecha bouwen. In Chapter 7 keerde ze terug om de Zero Point te helpen stabiliseren.",
+  "Ze weet meer dan bijna iedereen over hoe de Zero Point werkt.",
+  [["Chapter 1 Season 9","Bouwt mee aan de Mecha die het monster van The Final Showdown verslaat."],["Chapter 7 Season 3","Bouwt met Slone en ‘The Visitor’ aan The Stabilizer."],["Season 4","Wordt officieel lid als The Singularity."]]],
+ ["looper","De Looper","Jij","held","unc","looper","Chapter 1","Nog steeds in de Loop",
+  "Elke speler is de Looper: iemand die in de Loop vastzit, zijn geheugen kwijtraakt en steeds opnieuw uit de bus springt. In bijna elk event help jij de helden een handje.",
+  "Tijdens Out of Time ben jij erbij. In eerdere events koos je kant, sneed je met een zwaard door een schip en vocht je mee.",
+  [["Chapter 3","Sluit zich aan bij The Foundation tegen de IO."],["Chapter 5","Wordt Hero of Mortals en verslaat Zeus."],["Chapter 7","Helpt The Order ontsnappen, krijgt bij Shattered de Reforged Infinity Blade en wordt via Hope's cheatcode bevrijd van Geno's invloed."]]]];
+
+const W='https://fortnite.fandom.com/wiki/';
+const S=q=>W+'Special:Search?query='+encodeURIComponent(q);
+const WIKI={'geno':W+'Gen%C5%8D','jones':S('Jones'),'hope':S('Hope'),'slone':S('Doctor Slone'),'captain-x':S('Captain X'),'dark-voyager':S('Dark Voyager'),'foundation':S('The Foundation'),'the-order':S('The Order'),'ice-king':S('Ice King'),'oscar':S('Oscar'),'singularity':S('Singularity'),'looper':S('The Looper')};
+const box=document.getElementById('chars'),count=document.getElementById('count');
+box.innerHTML=C.map(([id,n,a,s,r,e,f,st,intro,why,story])=>`
+<article class="char" id="${id}" data-side="${s}" style="--r:${R[r]}">
+  <div class="top" data-anim>${tile(r,e)}<div class="nm"><small>${RN[r]} · ${SIDE[s]}</small><h3>${n}</h3><small>${a}</small></div></div>
+  <div class="body">
+    <p>${intro}</p>
+    <dl class="stats"><div><dt>Eerste keer</dt><dd>${f}</dd></div><div><dt>Nu</dt><dd>${st}</dd></div></dl>
+    <div class="why">Voor Out of Time: ${why}</div>
+    <details><summary>Hele verhaal (${story.length})</summary><ol>${story.map(([b,t])=>`<li><b>${b}:</b> ${t}</li>`).join('')}</ol></details>
+    <a class="wiki" href="${WIKI[id]}" target="_blank" rel="noopener">Bekijk ${n} op de Fortnite-wiki ↗</a>
+  </div>
+</article>`).join('');
+
+document.getElementById('heroTiles').innerHTML=`<svg viewBox="0 0 300 300" style="position:absolute;inset:0;width:100%;height:100%">
+ ${[["geno","io",20,20,1.6],["jones","leg",150,10,1.5],["hope","epic",160,150,1.6],["captainx","myth",20,160,1.5]].map(([e,r,x,y,s],i)=>`<g transform="translate(${x} ${y}) rotate(${[-6,5,-4,6][i]} 40 40) scale(${s})"><rect x="-3" y="-3" width="86" height="86" rx="6" fill="#fff" opacity=".9"/>${window.FN.BG(r)}${window.FN.SH(40,70,18)}${window.FN.EM[e]}</g>`).join('')}</svg>`;
+document.getElementById('heroTiles').classList.add('play');
+
+const chips=document.getElementById('chips');
+function filt(f){
+  chips.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.f===f));
+  let n=0;box.querySelectorAll('.char').forEach(c=>{const on=f==='all'||c.dataset.side===f;c.hidden=!on;if(on)n++});
+  count.textContent=`${n} personage${n===1?'':'s'}`;
+}
+chips.addEventListener('click',e=>{const b=e.target.closest('button');if(b)filt(b.dataset.f)});
+filt('all');
+
+function openHash(){const id=location.hash.slice(1);const el=id&&document.getElementById(id);if(el&&el.classList.contains('char')){filt('all');el.querySelector('details').open=true;el.scrollIntoView()}}
+addEventListener('hashchange',openHash);openHash();
+window.FN.watch(document);
+}
+</script>
+<script src="fx.js"></script>
+</body>
+</html>

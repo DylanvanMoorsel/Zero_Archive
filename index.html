@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>try{if(!sessionStorage.getItem("zaIntro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-on")}catch(e){}</script>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <radialGradient id="bg-rare" cx=".5" cy=".4" r=".75"><stop offset="0" stop-color="#7fd8ff"/><stop offset="1" stop-color="#1557d6"/></radialGradient>
+  <radialGradient id="bg-epic" cx=".5" cy=".4" r=".75"><stop offset="0" stop-color="#e08bff"/><stop offset="1" stop-color="#5a14b8"/></radialGradient>
+  <radialGradient id="bg-leg" cx=".5" cy=".4" r=".75"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#c8560f"/></radialGradient>
+  <radialGradient id="bg-unc" cx=".5" cy=".4" r=".75"><stop offset="0" stop-color="#a8f57f"/><stop offset="1" stop-color="#22801f"/></radialGradient>
+  <radialGradient id="bg-io" cx=".5" cy=".4" r=".75"><stop offset="0" stop-color="#ff8a8a"/><stop offset="1" stop-color="#8a0b1e"/></radialGradient>
+  <radialGradient id="bg-myth" cx=".5" cy=".4" r=".75"><stop offset="0" stop-color="#fff59a"/><stop offset="1" stop-color="#d49a00"/></radialGradient>
+  <linearGradient id="metal" x1="0" x2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#dfe6f0"/><stop offset="1" stop-color="#8b97ab"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2a0"/><stop offset="1" stop-color="#e0a000"/></linearGradient>
+  <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c98a45"/><stop offset="1" stop-color="#7a4a1e"/></linearGradient>
+  <linearGradient id="rock" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa3b5"/><stop offset="1" stop-color="#4a5468"/></linearGradient>
+  <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fe36a"/><stop offset="1" stop-color="#2c8f3a"/></linearGradient>
+  <linearGradient id="cubeg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2a8ff"/><stop offset="1" stop-color="#6a17c9"/></linearGradient>
+  <radialGradient id="fireg"><stop offset="0" stop-color="#fff6b0"/><stop offset=".5" stop-color="#ff8a1c"/><stop offset="1" stop-color="#d0231a"/></radialGradient>
+  <radialGradient id="zpg"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#bdf3ff"/><stop offset="1" stop-color="#20a8e0"/></radialGradient>
+  <g id="rays"><g fill="#ffffff" opacity=".13">
+   <path d="M40 40 L36 -20 L44 -20Z"/><path d="M40 40 L36 -20 L44 -20Z" transform="rotate(45 40 40)"/><path d="M40 40 L36 -20 L44 -20Z" transform="rotate(90 40 40)"/><path d="M40 40 L36 -20 L44 -20Z" transform="rotate(135 40 40)"/>
+   <path d="M40 40 L36 -20 L44 -20Z" transform="rotate(180 40 40)"/><path d="M40 40 L36 -20 L44 -20Z" transform="rotate(225 40 40)"/><path d="M40 40 L36 -20 L44 -20Z" transform="rotate(270 40 40)"/><path d="M40 40 L36 -20 L44 -20Z" transform="rotate(315 40 40)"/></g></g>
+  <g id="isle"><ellipse cx="40" cy="70" rx="30" ry="7" fill="#000" opacity=".22"/><ellipse cx="40" cy="66" rx="28" ry="8" fill="#f1c35a"/><ellipse cx="40" cy="63" rx="23" ry="6" fill="url(#grass)"/></g>
+ </defs>
+</svg>
+
+<nav><div class="wrap">
+  <a class="brand" href="index.html">Zero <span>Archive</span></a>
+  <div class="links scroll">
+    <a href="index.html#tijdlijn">Tijdlijn</a><a href="index.html#seven">The Seven</a><a href="index.html#geno">Geno</a><a href="index.html#comics">Comics</a><a href="index.html#events">Events</a><a href="quiz.html">Quiz</a><a href="personages.html">Personages</a><a href="out-of-time.html" class="hot">Out of Time</a>
+  </div>
+</div></nav>
+
+<header class="band hero" id="top"><div class="wrap">
+  <div>
+    <span class="tagl">Onofficiële lore-gids</span>
+    <h1>Het hele verhaal van <em>Fortnite</em></h1>
+    <p class="lead">Elke keer dat jij uit de bus springt, zit je gevangen in een experiment dat al meer dan duizend jaar loopt. Dit is het verhaal erachter: van de meteoriet in Chapter 1 tot de schatkist in Treasure Hunters, en wat er op 5 december gebeurt.</p>
+    <div class="clock" aria-live="polite"><div><b id="cd">–</b><small>dagen</small></div><div><b id="ch">–</b><small>uur</small></div><div><b id="cm">–</b><small>min</small></div></div>
+    <p class="when">tot Out of Time · zaterdag 5 december 2026, 20:00 Nederlandse tijd</p>
+    <div class="btns"><a class="btn y" href="#tijdlijn">Start het verhaal</a><a class="btn w" href="out-of-time.html">Out of Time</a><a class="btn w" href="personages.html">Personages</a></div>
+  </div>
+  <div class="fig" aria-hidden="true">
+    <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <radialGradient id="core"><stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#d2f7ff"/><stop offset=".72" stop-color="#4ccaf2"/><stop offset="1" stop-color="#0f78b0"/></radialGradient>
+        <radialGradient id="halo"><stop offset="0" stop-color="#ffffff" stop-opacity=".7"/><stop offset="1" stop-color="#bff1ff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="stormw" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c25bff" stop-opacity=".15"/><stop offset="1" stop-color="#8c2cf0" stop-opacity=".75"/></linearGradient>
+        <radialGradient id="redd"><stop offset="0" stop-color="#ffd0d3"/><stop offset=".5" stop-color="#ff2e4a"/><stop offset="1" stop-color="#7a0716"/></radialGradient>
+        <polygon id="shd" points="0,-14 6,0 0,14 -6,0"/>
+      </defs>
+      <g class="cloud" fill="#ffffff" opacity=".85"><ellipse cx="90" cy="80" rx="60" ry="18"/><ellipse cx="70" cy="68" rx="30" ry="18"/><ellipse cx="500" cy="120" rx="70" ry="20"/><ellipse cx="530" cy="106" rx="34" ry="20"/></g>
+      <path d="M0 330 Q300 250 600 330 V560 H0Z" fill="url(#stormw)"/>
+      <ellipse cx="300" cy="470" rx="270" ry="66" fill="#0b3aa0" opacity=".5"/>
+      <ellipse cx="300" cy="455" rx="250" ry="58" fill="#f1c35a"/>
+      <ellipse cx="300" cy="442" rx="210" ry="44" fill="url(#grass)"/>
+      <path d="M200 440 l40 -62 l40 62z" fill="#6f7f96"/><path d="M240 378 l40 62 h-20z" fill="#52617a"/>
+      <path d="M330 444 l14 -40 l14 40z" fill="#8a5a2b"/>
+      <circle cx="300" cy="260" r="210" fill="url(#halo)"/>
+      <g class="pulse"><circle cx="300" cy="260" r="112" fill="url(#core)"/><ellipse cx="262" cy="214" rx="36" ry="18" fill="#fff" opacity=".6"/>
+        <path d="M212 236 q40 -48 90 -28 q30 14 70 -10" stroke="#ffffff" stroke-width="3" fill="none" opacity=".7"/></g>
+      <ellipse cx="300" cy="280" rx="250" ry="74" fill="none" stroke="#ffe41f" stroke-width="5" opacity=".9" stroke-dasharray="2 0"/>
+      <g class="spin" fill="#ffffff"><use href="#shd" x="300" y="96"/><use href="#shd" x="455" y="170"/><use href="#shd" x="470" y="340"/><use href="#shd" x="140" y="350"/><use href="#shd" x="130" y="170"/></g>
+      <g fill="#ffe41f" stroke="#c9a800" stroke-width="3">
+        <circle cx="62" cy="302" r="10"/><circle cx="140" cy="338" r="10"/><circle cx="225" cy="352" r="10"/><circle cx="300" cy="354" r="10"/><circle cx="375" cy="352" r="10"/><circle cx="460" cy="338" r="10"/><circle cx="538" cy="302" r="10"/>
+      </g>
+      <path d="M560 40 C500 110 450 140 400 190" stroke="#ff2e4a" stroke-width="4" fill="none" stroke-dasharray="7 8"/>
+      <circle cx="396" cy="196" r="17" fill="url(#redd)"/><circle cx="396" cy="196" r="28" fill="none" stroke="#ff2e4a" stroke-width="3" opacity=".6"/>
+    </svg>
+  </div>
+</div></header>
+
+<section class="band" id="basis"><div class="wrap">
+  <h2>De vier dingen die alles verklaren</h2>
+  <p class="intro">Fortnite lijkt gewoon een shooter, maar elk potje is een scène uit een veel groter verhaal. Snap je deze vier, dan valt de rest vanzelf op zijn plek.</p>
+  <div class="grid">
+    <article class="card" style="--r:var(--rare)"><span class="rar">Kern</span><h3>De Zero Point</h3><p>Een gloeiende bol onder het eiland en de bron van álle realiteiten. Wie hem in handen heeft, kan de werkelijkheid herschrijven. Breekt hij, dan scheurt de lucht open en vallen er complete werelden het eiland op.</p></article>
+    <article class="card" style="--r:var(--storm)"><span class="rar" style="--r:var(--storm)">Gevangenis</span><h3>De Loop</h3><p>Een gevecht van ongeveer 22 minuten waarin je je geheugen en je stem kwijtraakt. Win je, dan ontsnap je, maar je blijft op het eiland en wordt er opnieuw in gezogen. Ja: jouw potje Battle Royale ís de Loop.</p></article>
+    <article class="card" style="--r:var(--io)"><span class="rar" style="--r:var(--io)">Vijand</span><h3>Imagined Order</h3><p>Geno richtte de IO meer dan duizend jaar geleden op om de Zero Point te beheersen. Vanuit een geheim eiland eronder houden ze de Loop draaiende en bestuderen ze iedereen die erin vastzit.</p></article>
+    <article class="card" style="--r:var(--leg)"><span class="rar" style="--r:var(--leg)">Helden</span><h3>The Seven</h3><p>Zeven rebellen met codenamen die de Loop willen breken. Ze werken al sinds Chapter 1 in het geheim en vechten openlijk sinds Chapter 2. In Chapter 7 komt er een nieuwe bezetting, met een verrader in hun midden.</p></article>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>22 minuten</b><span>zo lang duurt één ronde van de Loop</span></div>
+    <div class="fact"><b>1000+ jaar</b><span>zo lang bestaat de Imagined Order al</span></div>
+    <div class="fact"><b>10,5 miljoen</b><span>spelers zagen Zero Hour, de finale van Chapter 6</span></div>
+    <div class="fact"><b>The Rock</b><span>Dwayne Johnson spreekt The Foundation in</span></div>
+  </div>
+</div></section>
+
+<section class="band alt" id="tijdlijn"><div class="wrap">
+  <h2>Het verhaal, chapter voor chapter</h2>
+  <p class="intro">Kies een chapter. Beweeg over een seizoen (of tik erop) om de tegel tot leven te zien komen. De gouden tegels zijn de momenten waarop alles veranderde.</p>
+  <div class="tabs scroll" role="tablist" id="tabs" aria-label="Chapters"></div>
+  <div id="panel" role="tabpanel"></div>
+</div></section>
+
+<section class="band" id="seven"><div class="wrap">
+  <h2>The Seven</h2>
+  <p class="intro">Ze verschenen een voor een, verspreid over jaren. De eerste lag letterlijk in een meteoriet; de laatste dook pas in Chapter 3 op.</p>
+  <div class="roster" id="orig"></div>
+  <div class="sub">
+    <h2 style="font-size:clamp(30px,4vw,40px)">The New Seven</h2>
+    <p class="intro">Chapter 7 bracht een nieuwe ploeg met nieuwe codenamen. Ze vertrouwden elkaar blind, en dat was precies het probleem.</p>
+    <div class="roster" id="new"></div>
+  </div>
+</div></section>
+
+<section class="band alt" id="geno"><div class="wrap">
+  <h2>Geno: de man achter alles</h2>
+  <p class="intro">Jarenlang was hij alleen een naam die The Foundation noemde. Toen een schim. Toen een vijand in een harnas. En in Chapter 7 stond hij gewoon naast The Seven, vermomd als een van hen.</p>
+  <div class="wanted">
+    <div class="poster">
+      <span class="lab">Gezocht door The Seven</span>
+      <h3>Geno</h3>
+      <svg viewBox="0 0 300 140" aria-hidden="true"><rect width="300" height="140" fill="#1a0308"/><circle cx="150" cy="70" r="46" fill="#000" stroke="#ff2e4a" stroke-width="3"/><circle cx="150" cy="70" r="30" fill="none" stroke="#ff2e4a" stroke-width="2" stroke-dasharray="4 6"/><path d="M150 30 v80 M110 70 h80" stroke="#ff2e4a" stroke-width="2"/><circle cx="150" cy="70" r="8" fill="#ff2e4a"/><text x="14" y="128" fill="#ff8a9a" font-size="12" font-family="Nunito Sans,sans-serif" font-weight="800">Laatst gezien: met de Zero Point in zijn machine</text></svg>
+      <dl>
+        <div><dt>Beroep</dt><dd>Genetisch wetenschapper, bezeten van perfectie en onsterfelijkheid</dd></div>
+        <div><dt>Leider van</dt><dd>De Imagined Order</dd></div>
+        <div><dt>Familie</dt><dd>Vader van The Imagined en The Order, die hem allebei de rug toekeerden</dd></div>
+        <div><dt>Bekende vermommingen</dt><dd>The Ageless (een jongere versie) in Chapter 4, The Visitor in Chapter 7</dd></div>
+      </dl>
+    </div>
+    <ol class="steps" id="genoSteps"></ol>
+  </div>
+</div></section>
+
+<section class="band" id="comics"><div class="wrap">
+  <h2>Lore die alleen in strips staat</h2>
+  <p class="intro">Sommige belangrijke momenten zie je nooit in de game. Ze staan in comics, en die verwijzen ook nog eens naar elkaar.</p>
+  <div class="grid" id="comicList"></div>
+</div></section>
+
+<section class="band alt" id="events"><div class="wrap">
+  <h2>Live events die alles veranderden</h2>
+  <p class="intro">Eén keer, voor iedereen tegelijk, nooit opnieuw. Dit zijn de events die een chapter afsloten of het verhaal op zijn kop zetten.</p>
+  <div class="evs" id="evList"></div>
+</div></section>
+
+<section class="band oot" id="outoftime"><div class="wrap">
+  <div>
+    <h2>Out of Time</h2>
+    <p>Chapter 7 eindigt met wat Epic het grootste event noemt dat ze ooit gemaakt hebben. Geno heeft de Zero Point, de sleutel van de schatkist ligt in een andere realiteit, en Jones' tijd lijkt letterlijk op te raken.</p>
+    <ul class="olist">
+      <li><b>Op de key art:</b> Geno, Hope, Jones en Captain X.</li>
+      <li><b>De onthulling:</b> eindelijk wordt bekend wie Captain X echt is.</li>
+      <li><b>Tellers op de map:</b> boven de Chest in Battle Royale, en in OG boven de Zero Point en de raket van Dusty Depot.</li>
+      <li><b>Een oude bekende:</b> “Out of Time” was ook de slogan van Season X in Chapter 1.</li>
+      <li><b>Testsessie:</b> een spoilervrije servertest levert 80.000 XP op.</li>
+    </ul>
+    <p style="margin:16px 0 0"><a class="btn y" href="out-of-time.html">Lees de complete Out of Time-gids</a></p>
+    <div class="theory"><strong>Theorie van fans:</strong> de teller hangt ook boven de raket en de Zero Point van Season X, precies de plek waar Chapter 1 eindigde met The End. Toeval? Dat is niet bevestigd, maar het is wel verdacht.</div>
+  </div>
+  <div class="times">
+    <h3>Zet je wekker</h3>
+    <div><span>Wachtrij open</span><span>19:20 NL</span></div>
+    <div><span>Event begint</span><span>20:00 NL</span></div>
+    <div><span>Oost-VS</span><span>14:00 ET</span></div>
+    <div><span>UTC</span><span>19:00</span></div>
+    <div><span>Daarna</span><span>Downtime, dan Chapter 8</span></div>
+    <p style="font-size:15px;margin:12px 0 0">Een live event speelt maar één keer. Log ruim op tijd in.</p>
+  </div>
+</div></section>
+
+<section class="band" id="woorden"><div class="wrap">
+  <h2>Lore-woordenboek</h2>
+  <p class="intro">Snapshot? Chrome? Oathbound? Zoek het hier op.</p>
+  <input class="search" id="q" type="search" placeholder="Zoek een term, bijv. rift" aria-label="Zoek in woordenboek">
+  <dl class="gl" id="gloss"></dl>
+  <p class="empty" id="none">Geen term gevonden. Probeer een ander woord.</p>
+  <p class="note">Bijgewerkt op 25 november 2026, op basis van de Fortnite-wiki en gamingnieuwssites. Epic kan het verhaal later nog aanvullen. De zeldzaamheidskleuren van de tegels zijn onze eigen inschatting van hoe belangrijk een moment was.</p>
+</div></section>
+
+<footer class="band"><div class="wrap">
+  <p><strong>Zero Archive</strong> is een onofficiële fansite, niet verbonden aan of goedgekeurd door Epic Games. Alle illustraties zijn eigen tekeningen.</p>
+  <p>Fortnite is een handelsmerk van Epic Games, Inc. · <a href="https://www.fortnite.com">fortnite.com</a></p>
+</div></footer>
+
+<script>
+{
+const R={rare:'var(--rare)',epic:'var(--epic)',leg:'var(--leg)',unc:'var(--unc)',io:'var(--io)',myth:'var(--myth)'};
+const RN={rare:'Rare',epic:'Epic',leg:'Legendary',unc:'Uncommon',io:'IO',myth:'Mythic'};
+/* [season, title, text, art, rarity, event, twist] */
+const ch=[
+ {n:"Chapter 1",y:"2017–2019",l:"Een meteoriet, een raket en een zwart gat dat alles opslokte.",items:[
+  ["Season 3","Er valt iets uit de lucht","Een komeet hangt wekenlang boven het eiland en slaat dan in. Waar ooit Dusty Depot stond, ligt nu een gigantische krater: Dusty Divot.","meteor","rare","",""],
+  ["Season 4","Wie zat er in die meteoriet?","De IO bouwt meteen een lab in de krater, maar te laat. Uit de rots stapt The Visitor, het eerste lid van The Seven dat we ooit zagen. Samen met The Scientist bouwt hij in het geheim een raket.","rocket","leg","Rocket Launch · 30 jun 2018","De raket vloog niet weg: hij scheurde de lucht open."],
+  ["Season 5–6","Rifts en een paarse kubus","Door de scheur vallen plekken uit andere realiteiten het eiland op. Dan rolt er een mysterieuze paarse kubus over de map, die fans Kevin noemen. Hij groeit, laat runen achter en ontploft.","cube","epic","",""],
+  ["Season 7–8","IJs, lava en een kluis","De Ice King en Sgt. Winter bevriezen het eiland. Daarna ontwaakt The Prisoner, barst er een vulkaan uit en gaat de geheimzinnige Vault open.","volcano","rare","",""],
+  ["Season 9","The Final Showdown","Een gigantisch monster stampt op het eiland af. Een reuzenrobot, de Mecha, bestuurd door The Paradigm, gaat de strijd aan en wint. Kort daarna begint de Zero Point te trillen.","clash","leg","Final Showdown · 2019",""],
+  ["Season X","The End","The Scientist zet Rift Beacons neer en lanceert raketten door de rifts. Alles komt samen in één klap: een zwart gat slokt het hele eiland op.","blackhole","myth","The End · 13 okt 2019","Dagenlang zag je in de game niets anders dan dat zwarte gat."]]},
+ {n:"Chapter 2",y:"2019–2021",l:"Spionnen, superhelden en de eerste keer dat de naam Geno valt.",items:[
+  ["Season 1–2","De spionnenoorlog","Na de blackout ligt er een gloednieuw eiland. Twee agentschappen, GHOST en SHADOW, voeren een geheime oorlog. Midas bouwt intussen The Device om de storm te stoppen.","spy","rare","",""],
+  ["Season 3","Alles onder water","The Device ontploft verkeerd: een muur van water overspoelt het eiland. In de Hideout ligt een comic waarin Galactus zijn oog op de Zero Point laat vallen.","flood","rare","",""],
+  ["Season 4","Nexus War","Galactus komt eraan. Helden uit Marvel-realiteit 616 schieten het eiland te hulp. Galactus slokt zelfs de Battle Buses op voordat hij wordt teruggestuurd.","planet","epic","Galactus · 2020",""],
+  ["Season 5","Agent Jones neemt het over","Jones moet de Zero Point stabiel houden. Hij haalt jagers uit allerlei realiteiten naar het eiland om hem te helpen.","rift","rare","",""],
+  ["Season 6","Zero Crisis","The Foundation onthult zichzelf. Eerst vecht hij met Jones, dan sluiten ze een pact. Hij bouwt The Spire om de Zero Point in te dammen.","tower","epic","","Hier valt voor het eerst de naam Geno."],
+  ["Season 7","De invasie","Aliens van The Last Reality vallen aan. In Operation Sky Fire wordt hun moederschip uitgeschakeld, en daarbinnen gloeit een gouden kubus.","ufo","leg","Operation Sky Fire · 2021",""],
+  ["Season 8","De Cube Queen","De heerseres van de kubussen valt het eiland aan. The Foundation helpt haar te verslaan en het eiland draait letterlijk om.","cube","myth","The End · 4 dec 2021",""]]},
+ {n:"Chapter 3",y:"2021–2022",l:"De oorlog tegen de IO barst eindelijk los.",items:[
+  ["Season 1","Flipped","Het eiland ligt op zijn kop. De Looper (dat ben jij) sluit zich aan bij The Foundation tegen de IO.","flip","rare","",""],
+  ["Season 2","Het verzet","De IO bezet een groot deel van het eiland en bouwt The Collider. The Seven vormen een verzet en halen de Mecha terug. De laatste leden duiken op: The Origin, The Imagined en The Order.","clash","epic","",""],
+  ["Finale","Collision","The Paradigm stuurt de Mecha tegen de troepen van de IO. The Foundation offert zich op om The Collider te stoppen.","collider","myth","Collision · 4 jun 2022","Voor het eerst zie je Geno zelf."],
+  ["Season 3","De Reality Tree","Er groeit een reusachtige Reality Tree op het eiland, en de Zero Point komt weer bloot te liggen.","tree","unc","",""],
+  ["Season 4","Chrome","The Herald verspreidt een vloeibaar metaal over het eiland. Alles wordt verchroomd, zelfs The Scientist. The Herald wordt vernietigd, maar het eiland valt in stukken.","chrome","leg","Fracture · 3 dec 2022",""]]},
+ {n:"Chapter 4",y:"2022–2023",l:"Ridders, robots en een reis terug in de tijd.",items:[
+  ["Season 1","Oathbound","De Zero Point trekt een middeleeuws kasteel naar het eiland: The Citadel. De heerser, The Ageless, gebruikt Kinetic Ore voor zijn wapens.","castle","epic","","The Ageless is een jongere versie van Geno."],
+  ["Season 2","MEGA City","Een neon-stad vol hoogbouw wordt naar binnen gerift. Het Peace Syndicate zoekt naar een saboteur.","city","rare","",""],
+  ["Season 3","De jungle","Het midden van het eiland stort in en onthult een oeroude jungle. Doctor Slone onderzoekt een apparaat genaamd The Apparatus.","tree","unc","",""],
+  ["Season 4","De vampier","Kado Thorne, een eeuwenoude vampier, komt aan met zijn Eclipse. Slone huurt een crew in om zijn tijdmachine te stelen.","bats","epic","",""],
+  ["Season OG","Terug naar het begin","Jones reist naar een andere versie van Chapter 1 om de bewoners van Reality Zero te redden en een nieuwe Big Bang te ontsteken.","clock","myth","The Big Bang · 2 dec 2023",""]]},
+ {n:"Chapter 5",y:"2023–2024",l:"Goden, Doom en een doos die nooit open had mogen gaan.",items:[
+  ["Season 1","The Underground","Montague sticht de elitaire Society. Hope weigert mee te doen en begint The Underground, waar Jones zich bij aansluit. Aan het eind gaat Pandora's Box open.","box","epic","Pandora's Box · mrt 2024",""],
+  ["Season 2","De goden komen","Het Pantheon landt op het eiland en Zeus besluit dat de stervelingen moeten verdwijnen. De Looper wordt Hero of Mortals en verslaat uiteindelijk Zeus zelf.","bolt","leg","",""],
+  ["Season 3","Wasteland","Megalo Don en zijn Wasteland Warriors stelen de Nitro en scheuren rond in monsterwagens. Hope verzamelt in stilte Pandora-edelstenen.","car","rare","",""],
+  ["Season 4","Absolute Doom","The Wanderer slokt de kracht van Pandora's Box op en verzamelt schurken om zich heen. Helden schieten te hulp en sturen hem terug naar zijn eigen realiteit.","aura","epic","","The Wanderer was al die tijd Doctor Doom."],
+  ["Remix","Remix","Een Rift Butterfly sleept het eiland langs geremixte realiteiten. Het eindigt met een groot concert, en Jones en Hope vertrekken naar Reality 783.","butterfly","myth","Remix: The Finale · 30 nov 2024",""]]},
+ {n:"Chapter 6",y:"2024–2025",l:"Demonen, goud, Star Wars en een uitstapje naar Springfield.",items:[
+  ["Season 1","Oninoshima","Een stuk Zero Point stort neer in Reality 783 en wekt demonen en Shogun X. Daigo sluit Jade op in het Spirit Realm, maar een Dark Presence grijpt de Shard.","shard","epic","",""],
+  ["Season 2","Lawless","Goud overspoelt het eiland en criminelen vechten erom. Daigo sluit een deal en verandert zelf in een demon.","coins","rare","",""],
+  ["Galactic Battle","De Death Star","Het Galactic Empire komt met de Death Star. Hope en Jones saboteren hem, en hij wordt vernietigd.","laser","leg","",""],
+  ["Season 3","Superhelden","Een bezeten Daigo verandert Masked Meadows in Demon's Domain. Superman sluit samen met de Supernovas het portaal.","close","epic","",""],
+  ["Season 4","Infestation","Een rottende tentakel brengt een zwerm insecten. Via een rift belanden Hope en Jones in Springfield.","bugs","rare","",""],
+  ["Mini Season","Springfield","Terug op Oninoshima vernietigt Jones de Dark Presence met zijn rode kubus. Daarna vertrekken Hope en Jones naar een nieuwe realiteit.","bang","myth","Zero Hour · 29 nov 2025","De Shard smolt samen met Homers afstandsbediening."]]},
+ {n:"Chapter 7",y:"2025–2026",l:"The Seven keren terug, maar een van hen is een verrader.",items:[
+  ["Season 1","The Visitor is terug","The Order landt na een noodsignaal van Jones. De Dark Voyager verzamelt Zero Shards. Dan opent een rode rift en landt The Visitor met een raket, net als in de oude tijd.","land","epic","",""],
+  ["Season 2","Ice King tegen Foundation","Meer Shards en het ijsfort van de Ice King worden naar binnen getrokken. Team Ice King wint, maar de Dark Voyager verraadt hem en maakt de Zero Point compleet.","ice","myth","Shattered · 5 jun 2026","The Visitor schiet Jones neer en zet zijn helm af: het is Geno."],
+  ["Season 3","The New Seven","Jones ligt zwaargewond in een helende tank. Slone, Hope en anderen vormen The New Seven en bouwen The Stabilizer, met de nep-Visitor gewoon in hun team. Tot hij betrapt wordt terwijl hij met Jones' tank knoeit.","heal","leg","Unstable · 15 aug 2026",""],
+  ["Season 4","Override","Geno hackt The Stabilizer via een achterdeur en zet de Zero Point in zijn eigen machine. Jones ontwaakt. Een splinter van de Zero Point roept hem, maar een superhack trekt in plaats daarvan een schatkist binnen.","hack","io","",""],
+  ["Treasure Hunters","De laatste schat","Hope en Jones landen met de kist op Crossbones Isle, waar Captain X de jacht leidt. Rivaliserende piraten willen de splinter, onder wie Oscar, gestuurd door Geno. De sleutel ligt in een andere realiteit.","chest","myth","Out of Time · 5 dec 2026","Geno onderschept Jones' radio en neemt alvast afscheid."]]}];
+
+/* --- tile art: item-shop style, rarity background + rays --- */
+const BG=r=>`<rect width="80" height="80" fill="url(#bg-${r})"/><use href="#rays" class="rays"/>`;
+const SH=(x,y,w)=>`<ellipse cx="${x}" cy="${y}" rx="${w}" ry="${w/4}" fill="#000" opacity=".25"/>`;
+const RKT=`<path d="M35 52 V32 Q40 14 45 32 V52Z" fill="url(#metal)" stroke="#2a3550" stroke-width="1.5"/><circle cx="40" cy="34" r="3.5" fill="#38a8ff" stroke="#2a3550"/><path d="M35 44 l-6 9 h6z M45 44 l6 9 h-6z" fill="#ff2e4a" stroke="#2a3550" stroke-width="1.2"/><path class="a-fire" d="M36 52 h8 l-4 11z" fill="url(#fireg)" style="transform-origin:50% 0"/>`;
+const ART={
+ meteor:r=>BG(r)+`<use href="#isle"/><circle class="a-flash c" cx="32" cy="62" r="13" fill="#fff3a0" opacity="0"/><g class="a-met"><path d="M62 14 L82 -6" stroke="#ffcf5a" stroke-width="9" stroke-linecap="round" opacity=".6"/><circle cx="58" cy="18" r="9" fill="url(#fireg)"/><circle cx="56" cy="20" r="5" fill="#5a3a2a"/></g>`,
+ rocket:r=>BG(r)+`<use href="#isle"/><g class="a-up">${RKT}</g>`,
+ land:r=>BG(r)+`<use href="#isle"/><ellipse cx="40" cy="14" rx="22" ry="6" fill="none" stroke="#ff2e4a" stroke-width="3"/><g class="a-down">${RKT}</g>`,
+ cube:r=>BG(r)+SH(40,68,16)+`<g class="a-spin c"><polygon points="40,18 60,30 60,52 40,64 20,52 20,30" fill="url(#cubeg)" stroke="#3a0a70" stroke-width="2"/><polygon points="40,18 60,30 40,42 20,30" fill="#f0d2ff" opacity=".8"/><path d="M40 42 V64" stroke="#3a0a70" stroke-width="1.5"/><path d="M28 46 l4 -4 l4 4 M44 50 l4 -4 l4 4" stroke="#fff" stroke-width="1.5" fill="none"/></g>`,
+ volcano:r=>BG(r)+`<use href="#isle"/><path d="M14 64 L34 30 h12 L66 64Z" fill="url(#rock)" stroke="#2a3550" stroke-width="1.5"/><path d="M34 30 h12 l-3 8 h-6z" fill="#ff6a1c"/><path d="M37 38 l-5 14 l4 -2 l2 8 l3 -10z" fill="#ff8a1c"/>`+[[-9,0],[0,.3],[9,.6],[4,.9]].map(([x,d])=>`<circle class="a-erupt" style="--x:${x}px;animation-delay:${d}s" cx="40" cy="30" r="4" fill="url(#fireg)"/>`).join(''),
+ clash:r=>BG(r)+SH(40,70,24)+`<g class="a-l"><circle cx="16" cy="44" r="13" fill="#38a8ff" stroke="#0d2fb8" stroke-width="3"/><rect x="10" y="40" width="12" height="4" fill="#fff"/></g><g class="a-r"><circle cx="64" cy="44" r="13" fill="#ff2e4a" stroke="#7a0716" stroke-width="3"/><path d="M58 40 l12 0" stroke="#fff" stroke-width="3"/></g><path class="a-burst c" d="M40 26 l4 10 l11 -2 l-7 8 l7 8 l-11 -2 l-4 10 l-4 -10 l-11 2 l7 -8 l-7 -8 l11 2z" fill="#ffe41f" stroke="#fff" stroke-width="1.5" opacity="0"/>`,
+ blackhole:r=>BG(r)+`<circle cx="40" cy="40" r="26" fill="none" stroke="#fff" stroke-width="2" opacity=".35" stroke-dasharray="3 5"/><circle class="a-pulse c" cx="40" cy="40" r="16" fill="#050010" stroke="#f0d2ff" stroke-width="3"/>`+[0,.4,.8,1.2].map(d=>`<circle class="a-suck" style="animation-delay:${d}s" cx="40" cy="40" r="3.5" fill="#fff"/>`).join(''),
+ spy:r=>BG(r)+SH(40,70,22)+`<rect x="14" y="34" width="20" height="32" fill="#2a3550"/><rect x="46" y="26" width="22" height="40" fill="#2a3550"/><rect x="18" y="40" width="4" height="4" fill="#ffe41f"/><rect x="52" y="32" width="4" height="4" fill="#ffe41f"/><g class="a-sweep"><circle cx="40" cy="38" r="12" fill="#bff1ff" fill-opacity=".35" stroke="url(#metal)" stroke-width="4"/><path d="M49 47 l10 10" stroke="#2a3550" stroke-width="6" stroke-linecap="round"/></g>`,
+ flood:r=>BG(r)+`<rect x="18" y="30" width="14" height="40" fill="url(#rock)"/><rect x="46" y="20" width="16" height="50" fill="url(#rock)"/><g class="a-rise" style="transform:translateY(40px)"><path d="M0 46 q10 -7 20 0 t20 0 t20 0 t20 0 V80 H0z" fill="#1b5cff" opacity=".9"/><path d="M0 46 q10 -7 20 0 t20 0 t20 0 t20 0" stroke="#fff" stroke-width="2" fill="none"/></g>`,
+ planet:r=>BG(r)+`<circle cx="48" cy="46" r="15" fill="#38a8ff"/><path d="M38 40 q8 -4 12 2 q6 2 10 -2 v10 q-10 8 -22 0z" fill="#5bd13f"/><circle class="a-eclipse" cx="34" cy="38" r="28" fill="#1a0a2e" stroke="#c25bff" stroke-width="3" style="transform:translateX(-70px)"/>`,
+ rift:r=>BG(r)+`<use href="#isle"/><ellipse class="a-open c" cx="40" cy="36" rx="17" ry="25" fill="#2a0a50" stroke="#fff" stroke-width="3"/><ellipse class="a-pulse c" cx="40" cy="36" rx="9" ry="16" fill="#bff1ff" opacity=".7"/>`,
+ close:r=>BG(r)+`<use href="#isle"/><ellipse class="a-close c" cx="40" cy="34" rx="17" ry="24" fill="#3a0a14" stroke="#ff2e4a" stroke-width="3"/><path class="a-fly" d="M30 56 l10 -18 l10 18z" fill="#ffe41f" stroke="#c9a800" stroke-width="2"/>`,
+ tower:r=>BG(r)+`<use href="#isle"/><g class="a-grow b"><path d="M34 62 L36 22 h8 L46 62Z" fill="url(#metal)" stroke="#2a3550" stroke-width="1.5"/><path d="M32 22 l8 -12 l8 12z" fill="#38a8ff" stroke="#2a3550" stroke-width="1.5"/></g><circle class="a-pulse c" cx="40" cy="14" r="9" fill="#bff1ff" opacity=".7"/>`,
+ ufo:r=>BG(r)+`<use href="#isle"/><path class="a-blink" d="M32 34 L24 64 H56 L48 34Z" fill="#bff1ff" opacity=".45"/><g class="a-bob"><ellipse cx="40" cy="30" rx="24" ry="8" fill="url(#metal)" stroke="#2a3550" stroke-width="1.5"/><ellipse cx="40" cy="25" rx="11" ry="8" fill="#38a8ff" stroke="#2a3550" stroke-width="1.5"/><g fill="#ffe41f"><circle cx="26" cy="31" r="2"/><circle cx="40" cy="34" r="2"/><circle cx="54" cy="31" r="2"/></g></g>`,
+ flip:r=>BG(r)+`<g class="a-flip c"><ellipse cx="40" cy="50" rx="28" ry="8" fill="#f1c35a"/><ellipse cx="40" cy="47" rx="23" ry="6" fill="url(#grass)"/><path d="M40 46 v-18" stroke="#7a4a1e" stroke-width="3"/><circle cx="40" cy="26" r="8" fill="#2c8f3a"/><path d="M50 46 l5 -10 l5 10z" fill="url(#rock)"/></g>`,
+ collider:r=>BG(r)+`<circle cx="40" cy="40" r="25" fill="none" stroke="url(#metal)" stroke-width="8"/><circle cx="40" cy="40" r="25" fill="none" stroke="#2a3550" stroke-width="1"/><circle class="a-pulse c" cx="40" cy="40" r="11" fill="url(#zpg)"/><g class="a-orbit"><circle cx="65" cy="40" r="6" fill="#ff2e4a" stroke="#fff" stroke-width="2"/></g>`,
+ tree:r=>BG(r)+`<use href="#isle"/><g class="a-grow b"><path d="M37 64 V36 h6 V64Z" fill="url(#wood)"/></g><g class="a-pop c" style="animation-delay:.5s;transform:scale(0)"><circle cx="40" cy="28" r="17" fill="#5bd13f" stroke="#22801f" stroke-width="2"/><circle cx="30" cy="34" r="10" fill="#3fbf3a"/><circle cx="51" cy="33" r="10" fill="#3fbf3a"/><circle cx="34" cy="22" r="4" fill="#bff1ff"/></g>`,
+ chrome:r=>BG(r)+`<use href="#isle"/><path class="a-pop c" d="M16 64 q-6 -22 10 -30 q6 -16 22 -10 q18 0 16 20 q8 10 -2 20z" fill="url(#metal)" stroke="#fff" stroke-width="2"/><ellipse class="a-pop c" cx="32" cy="38" rx="8" ry="4" fill="#fff"/>`,
+ castle:r=>BG(r)+`<use href="#isle"/><g class="a-rise" style="transform:translateY(40px)"><path d="M20 62 V36 h6 v-6 h6 v6 h3 v-14 l5 -8 l5 8 v14 h3 v-6 h6 v6 h6 V62Z" fill="url(#rock)" stroke="#2a3550" stroke-width="1.5"/><rect x="36" y="48" width="8" height="14" rx="4" fill="#3a2a1a"/><path d="M40 14 v-6 l8 3 l-8 3" fill="#ff2e4a"/></g>`,
+ city:r=>BG(r)+SH(40,70,30)+[[10,22,0,"#38a8ff"],[30,36,.25,"#b04dff"],[52,28,.5,"#ff2e4a"]].map(([x,h,d,c])=>`<g class="a-grow b" style="animation-delay:${d}s;transform:scaleY(0)"><rect x="${x}" y="${66-h-14}" width="18" height="${h+14}" fill="#1a2550" stroke="${c}" stroke-width="2"/><rect x="${x+4}" y="${66-h-9}" width="4" height="4" fill="${c}"/><rect x="${x+10}" y="${66-h}" width="4" height="4" fill="#ffe41f"/><rect x="${x+4}" y="${66-h+8}" width="4" height="4" fill="#ffe41f"/></g>`).join(''),
+ bats:r=>BG(r)+`<circle cx="56" cy="22" r="12" fill="#fff3d6"/><circle cx="52" cy="20" r="3" fill="#e8d8b0"/>`+[[14,34,0],[38,44,.2],[24,56,.4]].map(([x,y,d])=>`<path class="a-jit" style="animation-delay:${d}s" d="M${x} ${y} q5 -8 10 -1 q5 -7 10 1 q-4 -1 -5 3 q-5 -4 -10 0 q-1 -4 -5 -3z" fill="#1a0510"/>`).join(''),
+ clock:r=>BG(r)+SH(40,70,20)+`<circle cx="40" cy="42" r="25" fill="url(#gold)" stroke="#7a4a00" stroke-width="2"/><circle cx="40" cy="42" r="20" fill="#fffbea"/><g fill="#7a4a00"><rect x="39" y="23" width="2" height="4"/><rect x="39" y="57" width="2" height="4"/><rect x="21" y="41" width="4" height="2"/><rect x="55" y="41" width="4" height="2"/></g><rect class="a-hand" x="39" y="25" width="2" height="17" fill="#0b1440"/><rect class="a-hand2" x="38.5" y="31" width="3" height="11" fill="#ff2e4a"/><circle cx="40" cy="42" r="2.5" fill="#0b1440"/>`,
+ box:r=>BG(r)+SH(40,70,20)+`<path class="a-glow b" d="M30 44 L18 0 H62 L50 44Z" fill="#fff3a0" opacity="0"/><rect x="22" y="44" width="36" height="22" fill="url(#gold)" stroke="#7a4a00" stroke-width="2"/><g class="a-lid"><rect x="20" y="37" width="40" height="8" fill="#e0a000" stroke="#7a4a00" stroke-width="2"/></g><path d="M40 50 l4 6 l-4 6 l-4 -6z" fill="#38a8ff"/>`,
+ bolt:r=>BG(r)+`<ellipse cx="30" cy="18" rx="22" ry="10" fill="#e6ecf5"/><ellipse cx="52" cy="16" rx="20" ry="9" fill="#fff"/><path class="a-bolt" d="M44 22 L30 46 h11 L32 74 L58 38 h-11 l9 -16z" fill="#ffe41f" stroke="#fff" stroke-width="2" opacity="0"/>`,
+ car:r=>BG(r)+`<rect y="58" width="80" height="22" fill="#c98a4a"/><g class="a-drive"><rect x="24" y="40" width="34" height="14" rx="3" fill="#ff2e4a" stroke="#2a0a0a" stroke-width="1.5"/><rect x="32" y="33" width="14" height="9" fill="#38a8ff" stroke="#2a0a0a" stroke-width="1.5"/><circle cx="30" cy="56" r="6" fill="#222" stroke="#888" stroke-width="2"/><circle cx="52" cy="56" r="6" fill="#222" stroke="#888" stroke-width="2"/><path d="M58 44 l8 -2 v6z" fill="url(#fireg)"/><circle cx="16" cy="54" r="5" fill="#e8c79a" opacity=".8"/></g>`,
+ aura:r=>BG(r)+SH(40,70,18)+`<circle class="a-wave c" cx="40" cy="42" r="14" fill="none" stroke="#7dff9a" stroke-width="3"/><circle class="a-wave c" style="animation-delay:.7s" cx="40" cy="42" r="14" fill="none" stroke="#7dff9a" stroke-width="3"/><path d="M28 30 h24 v18 q0 12 -12 16 q-12 -4 -12 -16z" fill="url(#metal)" stroke="#1c4a2a" stroke-width="2"/><path d="M33 40 h14" stroke="#1c4a2a" stroke-width="3"/>`,
+ butterfly:r=>BG(r)+`<g class="a-fly"><g class="a-flap"><path d="M40 40 C24 16 8 24 16 40 C8 54 28 60 40 40Z" fill="#7fe3ff" stroke="#fff" stroke-width="2"/><path d="M40 40 C56 16 72 24 64 40 C72 54 52 60 40 40Z" fill="#e08bff" stroke="#fff" stroke-width="2"/></g><rect x="39" y="28" width="2.5" height="24" rx="1" fill="#0b1440"/></g>`,
+ shard:r=>BG(r)+`<use href="#isle"/><circle class="a-flash c" cx="40" cy="62" r="15" fill="#bff1ff" opacity="0"/><g class="a-drop"><path d="M40 38 l9 14 l-9 14 l-9 -14z" fill="url(#zpg)" stroke="#fff" stroke-width="2"/></g>`,
+ coins:r=>BG(r)+[[14,0],[30,.5],[46,.2],[62,.8],[38,1.1]].map(([x,d])=>`<g class="a-fall" style="animation-delay:${d}s"><circle cx="${x}" cy="70" r="7" fill="url(#gold)" stroke="#7a4a00" stroke-width="2"/><rect x="${x-1}" y="66" width="2" height="8" fill="#7a4a00"/></g>`).join(''),
+ laser:r=>BG(r)+`<circle cx="54" cy="34" r="18" fill="url(#rock)" stroke="#2a3550" stroke-width="2"/><circle cx="48" cy="28" r="5" fill="#2a3550"/><path d="M36 34 h36" stroke="#2a3550" stroke-width="1.5"/><path class="a-burst c" style="animation-duration:1.8s" d="M54 16 l4 10 l11 -2 l-7 8 l7 8 l-11 -2 l-4 10 l-4 -10 l-11 2 l7 -8 l-7 -8 l11 2z" fill="#ffe41f" stroke="#fff" stroke-width="1.5" opacity="0"/>`+[54,62].map((y,i)=>`<rect class="a-zap" style="animation-delay:${i*.4}s" x="20" y="${y}" width="18" height="3" rx="1.5" fill="#7dff9a"/>`).join(''),
+ bugs:r=>BG(r)+`<use href="#isle"/>`+[[22,30],[46,22],[58,44],[30,48],[50,56]].map(([x,y],i)=>`<g class="a-jit" style="animation-delay:${i*.1}s"><ellipse cx="${x}" cy="${y}" rx="6" ry="4.5" fill="#b8f04a" stroke="#2a4a0a" stroke-width="1.5"/><path d="M${x-5} ${y-2} l-4 -4 M${x+5} ${y-2} l4 -4" stroke="#2a4a0a" stroke-width="1.5"/></g>`).join(''),
+ bang:r=>BG(r)+`<circle class="a-wave c" cx="40" cy="40" r="12" fill="none" stroke="#ff2e4a" stroke-width="5"/><circle class="a-wave c" style="animation-delay:.45s" cx="40" cy="40" r="12" fill="none" stroke="#ffe41f" stroke-width="5"/><circle class="a-wave c" style="animation-delay:.9s" cx="40" cy="40" r="12" fill="none" stroke="#fff" stroke-width="5"/><rect x="33" y="33" width="14" height="14" fill="#ff2e4a" stroke="#fff" stroke-width="2" transform="rotate(45 40 40)"/>`,
+ ice:r=>BG(r)+`<path d="M6 70 L18 44 L28 58 L40 30 L52 58 L62 46 L74 70Z" fill="#e8f8ff" stroke="#7fc8ff" stroke-width="2"/><path d="M40 30 L46 44 L40 40 L34 44Z" fill="#fff"/>`+[[12,0],[30,.4],[50,.9],[66,.2]].map(([x,d])=>`<path class="a-fall" style="animation-delay:${d}s" d="M${x-4} 70 h8 M${x} 66 v8 M${x-3} 67 l6 6 M${x+3} 67 l-6 6" stroke="#fff" stroke-width="2"/>`).join(''),
+ heal:r=>BG(r)+SH(40,72,18)+`<rect x="24" y="10" width="32" height="60" rx="12" fill="#bff1ff" fill-opacity=".4" stroke="url(#metal)" stroke-width="4"/><rect x="34" y="26" width="12" height="32" rx="6" fill="#fff" opacity=".7"/><rect x="22" y="64" width="36" height="8" rx="3" fill="url(#metal)"/>`+[[32,0],[44,.5],[38,1]].map(([x,d])=>`<circle class="a-bub" style="animation-delay:${d}s" cx="${x}" cy="60" r="3" fill="#fff"/>`).join(''),
+ hack:r=>BG(r)+SH(40,72,22)+`<rect x="12" y="14" width="56" height="40" rx="4" fill="#0a0f18" stroke="url(#metal)" stroke-width="3"/>`+[[18,22,30,"#7dff9a"],[18,30,22,"#ff2e4a"],[18,38,36,"#7dff9a"],[18,46,16,"#ffe41f"]].map(([x,y,w,c])=>`<rect class="a-glitch" x="${x}" y="${y}" width="${w}" height="4" fill="${c}"/>`).join('')+`<rect x="34" y="54" width="12" height="8" fill="#2a3550"/><rect x="24" y="62" width="32" height="5" rx="2" fill="#2a3550"/>`,
+ chest:r=>BG(r)+SH(40,70,22)+`<path class="a-glow b" d="M30 46 L20 4 H60 L50 46Z" fill="#fff3a0" opacity="0"/><rect x="22" y="44" width="36" height="22" rx="2" fill="url(#wood)" stroke="#3a1e08" stroke-width="2"/><g class="a-lid"><path d="M22 45 q18 -16 36 0z" fill="#b5711f" stroke="#3a1e08" stroke-width="2"/></g><rect x="22" y="49" width="36" height="4" fill="url(#gold)"/><rect x="36" y="49" width="8" height="10" rx="1" fill="url(#gold)" stroke="#7a4a00"/>`+[[16,22],[64,18],[62,38]].map(([x,y],i)=>`<path class="a-spark c" style="animation-delay:${i*.3}s" d="M${x} ${y-5} l1.5 3.5 l3.5 1.5 l-3.5 1.5 l-1.5 3.5 l-1.5 -3.5 l-3.5 -1.5 l3.5 -1.5z" fill="#fff"/>`).join('')};
+
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+tabs.innerHTML=ch.map((c,i)=>`<button role="tab" id="tab${i}" aria-selected="false" data-i="${i}">${c.n}</button>`).join('');
+function replay(el){el.classList.remove('play');void el.offsetWidth;el.classList.add('play')}
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){replay(en.target);io.unobserve(en.target)}}),{threshold:.5});
+function show(i){
+  const c=ch[i];
+  tabs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.i==i));
+  panel.setAttribute('aria-labelledby','tab'+i);
+  panel.innerHTML=`<div class="chhead"><h3>${c.n} <span style="color:var(--soft);font-size:.6em">${c.y}</span></h3><p>${c.l}</p></div><ol class="tl">${c.items.map(([s,t,p,a,r,e,x])=>`<li tabindex="0" style="--r:${R[r]}"><div class="art" aria-hidden="true"><svg viewBox="0 0 80 80">${ART[a](r)}</svg></div><div><div class="meta"><span class="rar" style="--r:${R[r]};margin:0">${RN[r]}</span><span class="s">${s}</span>${e?`<span class="evt">${e}</span>`:''}</div><h3>${t}</h3><p>${p}</p>${x?`<div class="twist">Plot twist: ${x}</div>`:''}</div></li>`).join('')}</ol>`;
+  panel.querySelectorAll('.tl li').forEach(li=>{io.observe(li);['mouseenter','focus','click'].forEach(ev=>li.addEventListener(ev,()=>replay(li)))});
+  try{localStorage.setItem('fnLoreTab',i)}catch(e){}
+}
+tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(+b.dataset.i)});
+tabs.addEventListener('keydown',e=>{const cur=+document.activeElement.dataset.i;if(isNaN(cur))return;let n=null;if(e.key==='ArrowRight')n=(cur+1)%ch.length;if(e.key==='ArrowLeft')n=(cur-1+ch.length)%ch.length;if(n!==null){show(n);document.getElementById('tab'+n).focus();e.preventDefault()}});
+let start=0;try{const s=localStorage.getItem('fnLoreTab');if(s!==null&&ch[+s])start=+s}catch(e){}
+show(start);
+
+/* --- The Seven: item cards with original emblems --- */
+const EM={
+ visitor:`<g class="a-up" style="animation-duration:3s">${RKT}</g>`,
+ scientist:`<circle cx="40" cy="40" r="6" fill="#fff"/><ellipse cx="40" cy="40" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="2.5"/><ellipse cx="40" cy="40" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="2.5" transform="rotate(60 40 40)"/><ellipse cx="40" cy="40" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="2.5" transform="rotate(-60 40 40)"/>`,
+ paradigm:`<path d="M24 22 h32 v20 q0 16 -16 22 q-16 -6 -16 -22z" fill="url(#metal)" stroke="#2a3550" stroke-width="2"/><path d="M30 36 h20" stroke="#38a8ff" stroke-width="4"/>`,
+ foundation:`<rect x="22" y="22" width="36" height="40" fill="url(#rock)" stroke="#2a3550" stroke-width="2"/><path d="M22 34 h36 M22 48 h36 M34 22 v12 M46 34 v14 M34 48 v14" stroke="#2a3550" stroke-width="2"/>`,
+ origin:`<path d="M22 56 l4 -26 l10 10 l4 -16 l4 16 l10 -10 l4 26z" fill="url(#gold)" stroke="#7a4a00" stroke-width="2"/><circle cx="40" cy="48" r="4" fill="#38a8ff"/>`,
+ imagined:`<path d="M40 16 l6 16 h17 l-14 10 l6 17 l-15 -10 l-15 10 l6 -17 l-14 -10 h17z" fill="#fff" stroke="#2a3550" stroke-width="2"/>`,
+ order:`<path d="M14 40 q26 -26 52 0 q-26 26 -52 0z" fill="#fff" stroke="#2a3550" stroke-width="2"/><circle cx="40" cy="40" r="9" fill="#2a3550"/><circle cx="37" cy="37" r="3" fill="#fff"/>`,
+ innovation:`<circle cx="40" cy="40" r="16" fill="url(#metal)" stroke="#2a3550" stroke-width="2"/><g stroke="#2a3550" stroke-width="5"><path d="M40 16 v8 M40 56 v8 M16 40 h8 M56 40 h8 M23 23 l6 6 M51 51 l6 6 M57 23 l-6 6 M23 57 l6 -6"/></g><circle cx="40" cy="40" r="6" fill="#38a8ff"/>`,
+ prophecy:`<rect x="20" y="20" width="40" height="40" rx="3" fill="#fff" stroke="#2a3550" stroke-width="2"/><path d="M26 52 q8 -18 14 -6 q6 -16 14 -6" stroke="#ff2e4a" stroke-width="3" fill="none"/><circle cx="32" cy="32" r="5" fill="#ffe41f"/><path d="M50 22 l8 -8" stroke="#b04dff" stroke-width="4"/>`,
+ guardian:`<path d="M40 14 l22 8 v16 q0 18 -22 28 q-22 -10 -22 -28 v-16z" fill="url(#gold)" stroke="#7a4a00" stroke-width="2"/><path d="M40 24 v34 M28 36 h24" stroke="#7a4a00" stroke-width="3"/>`,
+ singularity:`<circle cx="40" cy="40" r="20" fill="#0a0018" stroke="#fff" stroke-width="2"/><path d="M40 20 q14 20 0 40 q-14 -20 0 -40z" fill="url(#zpg)"/>`,
+ fake:`<path d="M24 22 h32 v18 q0 18 -16 24 q-16 -6 -16 -24z" fill="#1a0308" stroke="#ff2e4a" stroke-width="3"/><path d="M30 36 h8 M42 36 h8" stroke="#ff2e4a" stroke-width="4"/><path d="M58 18 l-36 44" stroke="#fff" stroke-width="3"/>`};
+const tile=(r,e)=>`<div class="ic"><svg viewBox="0 0 80 80" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${BG(r)}${SH(40,70,18)}${EM[e]}</svg></div>`;
+const card=([n,sub,d,r,e])=>`<article class="item play" style="--r:${R[r]}">${tile(r,e)}<div class="nm"><h3>${n}</h3><small>${RN[r]} · ${sub}</small></div><p>${d}</p></article>`;
+document.getElementById('orig').innerHTML=[
+ ["The Visitor","Navigator","Lag in de meteoriet van Chapter 1 en lanceerde de raket die alles in gang zette.","epic","visitor"],
+ ["The Scientist","Uitvinder","Bouwde de Rift Beacons en de raketten van Season X. Werd later verchroomd door The Herald.","rare","scientist"],
+ ["The Paradigm","Piloot","Bestuurde de Mecha in de twee grootste robotgevechten. Lang gewantrouwd door de anderen.","epic","paradigm"],
+ ["The Foundation","Krachtpatser","Bouwde The Spire en offerde zich op bij Collision. Stem: Dwayne Johnson.","leg","foundation"],
+ ["The Origin","Oprichter","Bracht de groep echt bijeen. Zijn verleden is het grootste mysterie van allemaal.","leg","origin"],
+ ["The Imagined","Dochter van Geno","Genetisch aangepast door haar vader, maar koos de kant van The Seven.","epic","imagined"],
+ ["The Order","Spion","Tweelingzus van The Imagined. Steelt IO-geheimen vanuit de schaduw.","rare","order"]].map(card).join('');
+document.getElementById('new').innerHTML=[
+ ["The Order","Terug van weg","Landde als eerste in Chapter 7 en riep de overlevenden bijeen.","rare","order"],
+ ["The Innovation","Doctor Slone","Ooit een kopstuk van de IO, nu het technische brein van het team.","epic","innovation"],
+ ["The Prophecy","Hope","Kreeg haar visioenen terug en schilderde verleden, heden en toekomst op een muur.","leg","prophecy"],
+ ["The Guardian","Nieuw lid","Sloot zich in Season 3 aan bij The New Seven.","rare","guardian"],
+ ["The Singularity","Nieuw lid","Hielp The Stabilizer bouwen en werd in Season 4 officieel lid.","epic","singularity"],
+ ["“The Visitor”","Verrader","Leek de oude Visitor, maar was Geno in vermomming.","io","fake"]].map(card).join('');
+
+document.getElementById('genoSteps').innerHTML=[
+ ["Meer dan 1000 jaar geleden","Vindt de Zero Point en sticht de Imagined Order om hem te beheersen."],
+ ["Chapter 2 · Zero Crisis","Voor het eerst valt zijn naam. The Foundation en Jones gaan naar hem op zoek."],
+ ["Chapter 3 · Collision","Verschijnt voor het eerst echt in beeld, tijdens het gevecht om The Collider."],
+ ["Comic · Zero War","Stapt in de Zero Point en wordt over het hele Omniverse verspreid. Toch weet hij zichzelf later weer samen te voegen."],
+ ["Chapter 4 · Oathbound","Een jongere versie van hem, The Ageless, regeert over een middeleeuws rijk."],
+ ["Chapter 7 · Shattered","Zet zijn helm af als The Visitor, schiet Jones neer en blijkt de Dark Voyager aan te sturen."],
+ ["Chapter 7 · Unstable","Hackt The Stabilizer en neemt de Zero Point mee in zijn machine."],
+ ["Treasure Hunters","Stuurt Oscar op de splinter af, luistert Jones' radio af en zegt alvast vaarwel."]].map(([b,s])=>`<li><b>${b}</b><span>${s}</span></li>`).join('');
+
+document.getElementById('comicList').innerHTML=[
+ ["Marvel · 2020","Nexus War: Thor","Thor reist als heraut van Galactus naar de Zero Point om een vreemde energiebron te onderzoeken. Dit is de aanloop naar de Nexus War, en je kon hem in de game lezen in The Hideout.","epic"],
+ ["DC · 2021","Batman/Fortnite: Zero Point","Batman belandt in de Loop, raakt zijn geheugen kwijt en moet net als jij een weg naar buiten vinden. Zes delen, geschreven door Christos Gage met Donald Mustard van Epic.","leg"],
+ ["DC · 2021","Batman/Fortnite: Foundation","Een eenmalig vervolg waarin Batman de handen ineenslaat met The Foundation.","rare"],
+ ["Marvel · 2022","Fortnite x Marvel: Zero War","Een Zero Shard is in de Marvel-wereld beland. Spider-Man, Shuri, Wolverine en Iron Man werken samen met Jones, The Imagined en The Foundation. Belangrijk: hier verdwijnt Geno in de Zero Point.","myth"],
+ ["Epic · 2026","Fortnite x Sonic","Een comic uit Chapter 7, rond de tijd dat Sonic in Season 4 naar het eiland kwam. Over de inhoud is nog weinig bekend.","unc"]]
+ .map(([k,t,d,r])=>`<article class="card" style="--r:${R[r]}"><span class="rar">${RN[r]} · ${k}</span><h3>${t}</h3><p>${d}</p></article>`).join('');
+
+document.getElementById('evList').innerHTML=[
+ ["30","jun 2018","Rocket Launch","The Visitor lanceert zijn raket en scheurt de lucht open.","leg"],
+ ["13","okt 2019","The End","Een zwart gat slokt het eiland op. Chapter 2 begint.","myth"],
+ ["4","dec 2021","The End (Ch2)","De Cube Queen verslagen, het eiland draait om.","myth"],
+ ["4","jun 2022","Collision","Mecha tegen The Collider. Geno voor het eerst in beeld.","myth"],
+ ["3","dec 2022","Fracture","Chrome neemt alles over en het eiland breekt.","leg"],
+ ["2","dec 2023","The Big Bang","Een nieuwe Big Bang en de start van Chapter 5.","myth"],
+ ["30","nov 2024","Remix: The Finale","Concert, en Jones en Hope vertrekken naar Oninoshima.","leg"],
+ ["29","nov 2025","Zero Hour","Grote crossover. De Dark Presence wordt vernietigd.","myth"],
+ ["5","jun 2026","Shattered","De Zero Point is heel, maar The Visitor blijkt Geno.","myth"],
+ ["15","aug 2026","Unstable","Geno kaapt The Stabilizer en de Zero Point.","io"],
+ ["5","dec 2026","Out of Time","Einde van Chapter 7. Wie is Captain X?","epic"]]
+ .map(([d,m,t,p,r])=>`<article class="ev" style="--r:${R[r]}"><div class="dt"><b>${d}</b><small>${m}</small></div><div class="tx"><h3>${t}</h3><p>${p}</p></div></article>`).join('');
+
+const gloss=[
+ ["Looper","Iemand die in de Loop vastzit. Als speler ben jij de Looper."],
+ ["Reality Zero","De oorspronkelijke realiteit waar de Zero Point in zit."],
+ ["Omniverse","Alle realiteiten samen, allemaal ontstaan uit de Zero Point."],
+ ["Rift","Een scheur tussen realiteiten waardoor plekken, mensen en spullen overkomen."],
+ ["Zero Shard","Een afgebroken stuk van de Zero Point, met een enorme kracht."],
+ ["Snapshot","Een versie van iemand uit een ander moment of een andere realiteit, zoals The Ageless voor Geno."],
+ ["Chrome","Het vloeibare metaal van The Herald dat in Chapter 3 alles verchroomde."],
+ ["Oathbound","Middeleeuwse orde uit Chapter 4 onder The Ageless, een soort voorloper van de IO."],
+ ["Kinetic Ore","Het mineraal dat Oathbound gebruikte voor wapens en technologie."],
+ ["The Spire","De toren die The Foundation in Chapter 2 bouwde om de Zero Point in te dammen."],
+ ["The Collider","Een IO-machine uit Chapter 3 die de Zero Point wilde aftappen."],
+ ["The Stabilizer","Apparaat van The New Seven om de Zero Point stabiel te maken. Geno hackte het."],
+ ["Sprites","Wezentjes uit Chapter 7, gemaakt van Zero Point-materiaal, die Jones helpen genezen."],
+ ["Shattered Coast","Het hervormde eiland nadat de Zero Point in Season 2 weer heel werd."],
+ ["Captain X","Het brein achter de schattenjacht in Treasure Hunters. Wie hij echt is, hoor je bij Out of Time."]];
+const gEl=document.getElementById('gloss'),none=document.getElementById('none');
+function renderG(q){const f=gloss.filter(([t,d])=>(t+' '+d).toLowerCase().includes(q));gEl.innerHTML=f.map(([t,d])=>`<div><dt>${t}</dt><dd>${d}</dd></div>`).join('');none.style.display=f.length?'none':'block'}
+renderG('');
+document.getElementById('q').addEventListener('input',e=>renderG(e.target.value.trim().toLowerCase()));
+
+const target=Date.UTC(2026,11,5,19,0,0);
+const cd=document.getElementById('cd'),chh=document.getElementById('ch'),cm=document.getElementById('cm');
+function tick(){let s=Math.max(0,Math.floor((target-Date.now())/1000));cd.textContent=Math.floor(s/86400);chh.textContent=Math.floor(s%86400/3600);cm.textContent=Math.floor(s%3600/60)}
+tick();const timer=setInterval(tick,15000);
+
+const prog=document.getElementById('prog');
+function onScroll(){const h=document.documentElement;const p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);prog.style.width=(p*100).toFixed(1)+'%'}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+}
+</script>
+<script src="fx.js"></script>
+</body>
+</html>

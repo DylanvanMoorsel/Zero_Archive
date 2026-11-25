@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Archive · Lore-quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>try{if(!sessionStorage.getItem("zaIntro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("intro-on")}catch(e){}</script>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<nav><div class="wrap">
+  <a class="brand" href="index.html">Zero <span>Archive</span></a>
+  <div class="links scroll">
+    <a href="index.html#tijdlijn">Tijdlijn</a><a href="index.html#seven">The Seven</a><a href="index.html#geno">Geno</a><a href="index.html#comics">Comics</a><a href="index.html#events">Events</a><a href="quiz.html" aria-current="page">Quiz</a><a href="personages.html">Personages</a><a href="out-of-time.html" class="hot">Out of Time</a>
+  </div>
+</div></nav>
+
+<header class="band hero small" style="padding-bottom:clamp(64px,7vw,96px)"><div class="wrap split">
+  <div>
+    <p class="crumbs"><a href="index.html">Zero Archive</a> › Lore-quiz</p>
+    <span class="tagl">10 vragen · alles staat op de site</span>
+    <h1>Ben jij een echte <em>lore-legende</em>?</h1>
+    <p class="lead">Tien willekeurige vragen over de Zero Point, The Seven, Geno en Out of Time. Elk goed antwoord levert XP op, en een reeks goede antwoorden levert bonuspunten op. Weet je het niet? Na elke vraag zie je het antwoord en waar het op de site staat.</p>
+    <div class="btns"><button class="btn y" id="go" type="button">Start de quiz</button><a class="btn w" href="index.html#tijdlijn">Eerst nog even lezen</a></div>
+    <p class="when" id="best" style="margin-top:16px"></p>
+  </div>
+  <div class="fig" aria-hidden="true" style="min-height:300px">
+    <svg viewBox="0 0 300 300" style="position:absolute;inset:0;width:100%;height:100%">
+      <defs><radialGradient id="qzg"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#bff1ff"/><stop offset="1" stop-color="#2ea8ff"/></radialGradient></defs>
+      <circle cx="150" cy="150" r="96" fill="url(#qzg)" class="pulse" style="transform-origin:150px 150px"/>
+      <ellipse cx="150" cy="160" rx="140" ry="36" fill="none" stroke="#ffe41f" stroke-width="5"/>
+      <text x="150" y="190" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="120" fill="#0d2fb8">?</text>
+    </svg>
+  </div>
+</div></header>
+
+<section class="band" id="quiz"><div class="wrap">
+  <div class="qz" id="qz" hidden>
+    <div class="qz-top">
+      <span class="tag" id="qNum" style="--r:var(--blue)">Vraag 1/10</span>
+      <span class="qz-score" id="qScore">0 punten</span>
+      <span class="qz-streak" id="qStreak" hidden></span>
+    </div>
+    <div class="meter" aria-hidden="true"><i id="qBar"></i></div>
+    <h2 id="qText" tabindex="-1"></h2>
+    <div class="qz-opts" id="qOpts" role="group" aria-labelledby="qText"></div>
+    <div class="qz-fb" id="qFb" aria-live="polite" hidden></div>
+    <div class="btns" style="margin-top:18px"><button class="btn y" id="next" type="button" hidden>Volgende vraag</button></div>
+  </div>
+  <div class="qz-end" id="end" hidden>
+    <span class="tag" id="rankTag" style="--r:var(--leg)">Resultaat</span>
+    <h2 id="rank"></h2>
+    <p class="intro" id="endTxt"></p>
+    <div class="facts" id="endStats"></div>
+    <h3 style="margin-top:28px">Jouw antwoorden</h3>
+    <ol class="qz-review" id="review"></ol>
+    <div class="btns" style="margin-top:20px"><button class="btn y" id="again" type="button">Nog een keer (nieuwe vragen)</button><button class="btn w" id="copy" type="button">Kopieer je score</button></div>
+  </div>
+  <div id="startHint"><h2>Hoe werkt het?</h2>
+    <div class="grid">
+      <article class="card" style="--r:var(--rare)"><span class="rar">Punten</span><h3>100 per goed antwoord</h3><p>En +50 bonus voor elk goed antwoord in een reeks van twee of meer.</p></article>
+      <article class="card" style="--r:var(--epic)"><span class="rar" style="--r:var(--epic)">XP</span><h3>Verdien XP voor je level</h3><p>Elke vraag die je voor het eerst goed hebt, telt mee voor je level rechtsboven.</p></article>
+      <article class="card" style="--r:var(--leg)"><span class="rar" style="--r:var(--leg)">Rang</span><h3>Van Looper tot legende</h3><p>Je eindscore bepaalt je rang. Haal je 10 uit 10, dan ben je een echte lore-legende.</p></article>
+    </div>
+  </div>
+</div></section>
+
+<footer class="band"><div class="wrap">
+  <p><strong>Zero Archive</strong> is een onofficiële fansite, niet verbonden aan of goedgekeurd door Epic Games. Bijgewerkt op 25 november 2026.</p>
+  <p>Fortnite is een handelsmerk van Epic Games, Inc. · <a href="https://www.fortnite.com">fortnite.com</a></p>
+</div></footer>
+
+<script src="shared.js"></script>
+<script>
+{
+/* [id, question, correct, [wrong x3], explanation, link] */
+const Q=[
+ ["loop","Hoe lang duurt één ronde van de Loop ongeveer?","22 minuten",["10 minuten","45 minuten","Een uur"],"Een ronde duurt ongeveer 22 minuten. Wie wint, ontsnapt, maar wordt daarna weer meegezogen.","index.html#basis"],
+ ["io","Wie stichtte de Imagined Order?","Geno",["Doctor Slone","Agent Jones","The Origin"],"Geno vond de Zero Point meer dan duizend jaar geleden en richtte de IO op om hem te beheersen.","personages.html#geno"],
+ ["meteor","Wie lag er in de meteoriet van Chapter 1?","The Visitor",["The Scientist","The Foundation","Kevin de kubus"],"In Season 4 stapte The Visitor uit de meteoriet, het eerste lid van The Seven dat we zagen.","index.html#tijdlijn"],
+ ["end1","Hoe eindigde Chapter 1?","Een zwart gat slokte het eiland op",["Het eiland draaide om","Alles werd verchroomd","Een vulkaan barstte uit"],"Bij The End op 13 oktober 2019 verdween alles in een zwart gat.","index.html#events"],
+ ["rock","Wie spreekt The Foundation in?","Dwayne Johnson",["Rahul Kohli","Ben Starr","Brie Larson"],"The Foundation wordt ingesproken door Dwayne “The Rock” Johnson.","personages.html#foundation"],
+ ["mecha","Wie bestuurde de Mecha?","The Paradigm",["The Order","The Imagined","Doctor Slone"],"The Paradigm stuurde de Mecha in The Final Showdown en opnieuw bij Collision.","index.html#seven"],
+ ["ageless","Wie is The Ageless uit Chapter 4?","Een jongere versie van Geno",["De vader van Hope","De oprichter van The Seven","Een vampier"],"The Ageless regeerde over Oathbound en is een Snapshot van een jongere Geno.","index.html#geno"],
+ ["underground","Wie richtte The Underground op?","Hope",["Jones","Midas","Montague"],"Hope wees The Society af en begon in Chapter 5 haar eigen verzet: The Underground.","personages.html#hope"],
+ ["doom","Wie bleek The Wanderer te zijn?","Doctor Doom",["Zeus","Geno","Megalo Don"],"In Chapter 5 Season 4 bleek The Wanderer Doctor Doom te zijn, die de kracht van Pandora's Box opslokte.","index.html#tijdlijn"],
+ ["zerowar","In welke comic verdwijnt Geno in de Zero Point?","Fortnite x Marvel: Zero War",["Batman/Fortnite: Zero Point","Nexus War: Thor","Batman/Fortnite: Foundation"],"In Zero War stapt Geno in de Zero Point en wordt hij over het Omniverse verspreid.","index.html#comics"],
+ ["shattered","Wat was de grote twist van Shattered?","The Visitor bleek Geno te zijn",["The Foundation werd een schurk","Hope verloor haar geheugen","De Ice King werd held"],"Aan het eind schoot The Visitor Jones neer en zette zijn helm af: het was Geno.","out-of-time.html"],
+ ["innovation","Welke codenaam kreeg Doctor Slone in The New Seven?","The Innovation",["The Prophecy","The Guardian","The Singularity"],"Slone werd The Innovation, het technische brein van het team.","personages.html#slone"],
+ ["prophecy","Welke codenaam kreeg Hope?","The Prophecy",["The Innovation","The Origin","The Order"],"Hope kreeg haar visioenen terug en werd The Prophecy.","personages.html#hope"],
+ ["stabilizer","Wat hackte Geno bij het event Unstable?","The Stabilizer",["The Collider","The Spire","De Dark Harvester"],"Geno en de Dark Voyager braken via een achterdeur in The Stabilizer en namen de Zero Point mee.","out-of-time.html"],
+ ["chest","Wat zit er in de schatkist van Treasure Hunters?","Een splinter van de Zero Point",["Pandora's Box","De helm van The Visitor","Kevin de kubus"],"Een superhack trok een kist binnen met een Zero Point-splinter op slot erin.","out-of-time.html"],
+ ["oscar","Welke piraat stuurde Geno op de splinter af?","Oscar",["Captain X","Midas","Syd"],"Geno stuurde Oscar naar Crossbones Isle om de splinter te halen.","personages.html#oscar"],
+ ["time","Hoe laat begint Out of Time in Nederland?","20:00",["18:00","21:30","14:00"],"Het event begint om 20:00 Nederlandse tijd (14:00 ET). De wachtrij opent om 19:20.","out-of-time.html"],
+ ["cube","Wat vernietigde Jones met zijn rode kubus?","De Dark Presence",["De Death Star","The Herald","Het moederschip"],"Aan het eind van Chapter 6 vernietigde Jones de Dark Presence met zijn rode kubus.","personages.html#jones"],
+ ["zerohour","Hoeveel spelers zagen Zero Hour, de finale van Chapter 6?","10,5 miljoen",["2 miljoen","25 miljoen","500.000"],"Zero Hour trok 10,5 miljoen spelers.","index.html#basis"],
+ ["seasonx","Waar was “Out of Time” eerder al de slogan van?","Season X van Chapter 1",["Chapter 2 Season 1","De Big Bang","Remix"],"“Out of Time” was ook de slogan van Season X. In OG hangt de teller boven de Zero Point en de raket.","out-of-time.html"],
+ ["daughters","Hoe heten de dochters van Geno?","The Imagined en The Order",["Hope en Valeria","The Paradigm en Singularity","Jade en Nisha"],"The Imagined en The Order zijn Geno's genetisch aangepaste dochters. Ze kozen allebei de kant van The Seven.","index.html#seven"],
+ ["voyager","Wie verraadde de Ice King bij Shattered?","De Dark Voyager",["The Foundation","Jones","Captain X"],"De Dark Voyager zoog de levenskracht van de Ice King op en maakte de Zero Point compleet.","personages.html#dark-voyager"]];
+const RANKS=[[0,"Nieuwe Looper","Iedereen begint ergens. Lees de tijdlijn en probeer het opnieuw."],[4,"Rift-reiziger","Je kent de grote lijnen. Nog een paar chapters en je hoort erbij."],[7,"Lid van The Seven","Sterk! Je weet meer dan de meeste spelers in de lobby."],[9,"Zero Point-meester","Bijna perfect. Geno zou je liever niet tegenkomen."],[10,"Lore-legende","10 uit 10. Jij bent klaar voor Out of Time."]];
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let set=[],i=0,score=0,good=0,streak=0,best=0,log=[];
+let rec=0;try{rec=+localStorage.getItem('zaQuizBest')||0}catch(e){}
+const showBest=()=>{$('best').textContent=rec?`Jouw beste score: ${rec} punten`:''};showBest();
+
+function start(){set=shuffle(Q).slice(0,10);i=0;score=0;good=0;streak=0;best=0;log=[];
+  $('startHint').hidden=true;$('end').hidden=true;$('qz').hidden=false;show();$('quiz').scrollIntoView({behavior:'smooth'})}
+function show(){const q=set[i];
+  $('qNum').textContent=`Vraag ${i+1}/10`;$('qBar').style.width=(i/10*100)+'%';$('qScore').textContent=score+' punten';
+  $('qText').textContent=q[1];$('qFb').hidden=true;$('next').hidden=true;
+  const opts=shuffle([q[2],...q[3]]);
+  $('qOpts').innerHTML=opts.map((o,k)=>`<button type="button" class="opt" data-v="${k}"><b>${'ABCD'[k]}</b><span></span></button>`).join('');
+  $('qOpts').querySelectorAll('.opt').forEach((b,k)=>{b.querySelector('span').textContent=opts[k];b.dataset.ok=opts[k]===q[2]?'1':''});
+  $('qText').focus({preventScroll:true});
+}
+$('qOpts').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b||$('qOpts').classList.contains('done'))return;
+  const q=set[i],ok=b.dataset.ok==='1',r=b.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+  $('qOpts').classList.add('done');
+  $('qOpts').querySelectorAll('.opt').forEach(o=>{o.disabled=true;if(o.dataset.ok)o.classList.add('right')});
+  if(ok){streak++;good++;const pts=100+(streak>1?50:0);score+=pts;best=Math.max(best,streak);
+    window.FX&&FX.burst(x,y,60,11);window.FX&&FX.give&&FX.give('quiz:'+q[0],80,x,y-40);
+    $('qFb').className='qz-fb ok';$('qFb').innerHTML='';$('qFb').append(Object.assign(document.createElement('b'),{textContent:streak>1?`Goed! +${pts} (reeks ×${streak})`:`Goed! +${pts}`}));
+  }else{streak=0;b.classList.add('wrong');b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');
+    $('qFb').className='qz-fb no';$('qFb').innerHTML='';$('qFb').append(Object.assign(document.createElement('b'),{textContent:'Helaas! Het juiste antwoord is: '+q[2]}))}
+  const p=document.createElement('p');p.textContent=q[4]+' ';const a=document.createElement('a');a.href=q[5];a.textContent='Lees meer op de site';p.append(a);$('qFb').append(p);
+  $('qFb').hidden=false;$('qScore').textContent=score+' punten';
+  $('qStreak').hidden=streak<2;$('qStreak').textContent=`Reeks ×${streak}`;
+  log.push([q[1],q[2],b.querySelector('span').textContent,ok]);
+  $('next').textContent=i===9?'Bekijk je resultaat':'Volgende vraag';$('next').hidden=false;$('next').focus({preventScroll:true});
+});
+$('next').addEventListener('click',()=>{$('qOpts').classList.remove('done');i++;if(i<10)show();else finish()});
+function finish(){$('qz').hidden=true;$('end').hidden=false;$('qBar').style.width='100%';
+  const rk=RANKS.filter(r=>good>=r[0]).pop();$('rank').textContent=rk[1];$('endTxt').textContent=`${good} van de 10 goed. ${rk[2]}`;
+  const newRec=score>rec;if(newRec){rec=score;try{localStorage.setItem('zaQuizBest',rec)}catch(e){}showBest()}
+  $('endStats').innerHTML=`<div class="fact"><b>${score}</b><span>punten${newRec?' · nieuw record!':''}</span></div><div class="fact"><b>${good}/10</b><span>goede antwoorden</span></div><div class="fact"><b>×${best}</b><span>langste reeks</span></div>`;
+  $('review').innerHTML='';log.forEach(([q,c,g,ok])=>{const li=document.createElement('li');li.className=ok?'ok':'no';
+    const b=document.createElement('b');b.textContent=q;const s=document.createElement('span');s.textContent=ok?`Goed: ${c}`:`Jij: ${g} · Juist: ${c}`;li.append(b,s);$('review').append(li)});
+  $('end').scrollIntoView({behavior:'smooth'});
+  if(window.FX){const n=good>=9?4:good>=7?2:1;for(let k=0;k<n;k++)setTimeout(()=>FX.burst(innerWidth*(.25+Math.random()*.5),innerHeight*(.3+Math.random()*.3),110,15),k*350);FX.give&&good===10&&FX.give('quiz:perfect',500,innerWidth/2,innerHeight/2)}
+}
+$('go').addEventListener('click',start);$('again').addEventListener('click',start);
+$('copy').addEventListener('click',async e=>{const t=`Ik haalde ${good}/10 (${score} punten) in de Zero Archive lore-quiz: ${$('rank').textContent}!`;
+  try{await navigator.clipboard.writeText(t);e.target.textContent='Gekopieerd!'}catch(err){e.target.textContent='Kopiëren lukt hier niet'}setTimeout(()=>e.target.textContent='Kopieer je score',1800)});
+}
+</script>
+<script src="fx.js"></script>
+</body>
+</html>
